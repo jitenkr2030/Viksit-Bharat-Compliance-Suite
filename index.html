@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viksit Bharat Compliance Suite - Educational Institution Compliance Management</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>Loading Viksit Bharat Compliance Suite...</p>
+    </div>
+
+    <!-- Main Application -->
+    <div id="app" class="app hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-left">
+                    <div class="logo">
+                        <i data-lucide="shield-check" class="logo-icon"></i>
+                        <span class="logo-text">Viksit Bharat Compliance</span>
+                    </div>
+                </div>
+                <div class="header-center">
+                    <div class="breadcrumb">
+                        <span class="breadcrumb-item">Dashboard</span>
+                        <i data-lucide="chevron-right" class="breadcrumb-separator"></i>
+                        <span class="breadcrumb-item active">Overview</span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="user-menu">
+                        <div class="notification-bell">
+                            <i data-lucide="bell" class="notification-icon"></i>
+                            <span class="notification-badge">3</span>
+                        </div>
+                        <div class="user-avatar">
+                            <span class="avatar-text">CO</span>
+                        </div>
+                        <span class="user-name">Compliance Officer</span>
+                        <i data-lucide="chevron-down" class="user-dropdown-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="app-layout">
+            <!-- Sidebar Navigation -->
+            <nav class="sidebar">
+                <div class="sidebar-content">
+                    <!-- Main Navigation -->
+                    <div class="nav-section">
+                        <div class="nav-item active" data-section="dashboard">
+                            <i data-lucide="layout-dashboard" class="nav-icon"></i>
+                            <span class="nav-label">Dashboard</span>
+                        </div>
+                    </div>
+
+                    <!-- Council Modules -->
+                    <div class="nav-section">
+                        <div class="nav-section-header">Regulatory Council</div>
+                        <div class="nav-item" data-section="regulatory">
+                            <i data-lucide="file-check" class="nav-icon"></i>
+                            <span class="nav-label">Viniyaman Parishad</span>
+                        </div>
+                        <div class="nav-item" data-section="approvals">
+                            <i data-lucide="clipboard-check" class="nav-icon"></i>
+                            <span class="nav-label">Approval Tracker</span>
+                        </div>
+                        <div class="nav-item" data-section="documents">
+                            <i data-lucide="archive" class="nav-icon"></i>
+                            <span class="nav-label">Document Vault</span>
+                        </div>
+                    </div>
+
+                    <div class="nav-section">
+                        <div class="nav-section-header">Standards Council</div>
+                        <div class="nav-item" data-section="standards">
+                            <i data-lucide="graduation-cap" class="nav-icon"></i>
+                            <span class="nav-label">Manak Parishad</span>
+                        </div>
+                        <div class="nav-item" data-section="curriculum">
+                            <i data-lucide="book-open" class="nav-icon"></i>
+                            <span class="nav-label">Curriculum Tracker</span>
+                        </div>
+                        <div class="nav-item" data-section="faculty">
+                            <i data-lucide="users" class="nav-icon"></i>
+                            <span class="nav-label">Faculty Credentials</span>
+                        </div>
+                    </div>
+
+                    <div class="nav-section">
+                        <div class="nav-section-header">Accreditation Council</div>
+                        <div class="nav-item" data-section="accreditation">
+                            <i data-lucide="award" class="nav-icon"></i>
+                            <span class="nav-label">Gunvatta Parishad</span>
+                        </div>
+                        <div class="nav-item" data-section="readiness">
+                            <i data-lucide="target" class="nav-icon"></i>
+                            <span class="nav-label">Accreditation Readiness</span>
+                        </div>
+                        <div class="nav-item" data-section="audit">
+                            <i data-lucide="search" class="nav-icon"></i>
+                            <span class="nav-label">Self-Audit Reports</span>
+                        </div>
+                    </div>
+
+                    <!-- Cross-Council Features -->
+                    <div class="nav-section">
+                        <div class="nav-section-header">Cross-Council Tools</div>
+                        <div class="nav-item" data-section="alerts">
+                            <i data-lucide="alert-triangle" class="nav-icon"></i>
+                            <span class="nav-label">Alerts & Reminders</span>
+                        </div>
+                        <div class="nav-item" data-section="reports">
+                            <i data-lucide="file-text" class="nav-icon"></i>
+                            <span class="nav-label">Reports & Analytics</span>
+                        </div>
+                        <div class="nav-item" data-section="settings">
+                            <i data-lucide="settings" class="nav-icon"></i>
+                            <span class="nav-label">Settings</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Main Content Area -->
+            <main class="main-content">
+                <!-- Dashboard Section -->
+                <section id="dashboard" class="content-section active">
+                    <div class="section-header">
+                        <h1 class="section-title">Compliance Dashboard</h1>
+                        <p class="section-subtitle">Real-time overview of institutional compliance status across all councils</p>
+                    </div>
+
+                    <!-- Hero Compliance Scores -->
+                    <div class="hero-scores">
+                        <div class="score-card regulatory" data-council="regulatory">
+                            <div class="score-visual">
+                                <svg class="progress-ring" width="80" height="80">
+                                    <circle class="progress-ring-circle" stroke="#E2E8F0" stroke-width="8" fill="transparent" r="30" cx="40" cy="40"></circle>
+                                    <circle class="progress-ring-progress" stroke="#3B82F6" stroke-width="8" fill="transparent" r="30" cx="40" cy="40" stroke-dasharray="188.5" stroke-dashoffset="47.125"></circle>
+                                </svg>
+                                <div class="score-value">75%</div>
+                            </div>
+                            <div class="score-info">
+                                <h3>Regulatory Council</h3>
+                                <p>Viniyaman Parishad</p>
+                                <span class="score-status safe">Good Standing</span>
+                            </div>
+                        </div>
+
+                        <div class="score-card standards" data-council="standards">
+                            <div class="score-visual">
+                                <svg class="progress-ring" width="80" height="80">
+                                    <circle class="progress-ring-circle" stroke="#E2E8F0" stroke-width="8" fill="transparent" r="30" cx="40" cy="40"></circle>
+                                    <circle class="progress-ring-progress" stroke="#10B981" stroke-width="8" fill="transparent" r="30" cx="40" cy="40" stroke-dasharray="188.5" stroke-dashoffset="28.275"></circle>
+                                </svg>
+                                <div class="score-value">85%</div>
+                            </div>
+                            <div class="score-info">
+                                <h3>Standards Council</h3>
+                                <p>Manak Parishad</p>
+                                <span class="score-status excellent">Excellent</span>
+                            </div>
+                        </div>
+
+                        <div class="score-card accreditation" data-council="accreditation">
+                            <div class="score-visual">
+                                <svg class="progress-ring" width="80" height="80">
+                                    <circle class="progress-ring-circle" stroke="#E2E8F0" stroke-width="8" fill="transparent" r="30" cx="40" cy="40"></circle>
+                                    <circle class="progress-ring-progress" stroke="#F59E0B" stroke-width="8" fill="transparent" r="30" cx="40" cy="40" stroke-dasharray="188.5" stroke-dashoffset="75.4"></circle>
+                                </svg>
+                                <div class="score-value">60%</div>
+                            </div>
+                            <div class="score-info">
+                                <h3>Accreditation Council</h3>
+                                <p>Gunvatta Parishad</p>
+                                <span class="score-status warning">Needs Attention</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Alert Cards -->
+                    <div class="alerts-section">
+                        <h2 class="section-subtitle">Critical Alerts & Action Items</h2>
+                        <div class="alerts-grid">
+                            <div class="alert-card critical">
+                                <i data-lucide="alert-triangle" class="alert-icon"></i>
+                                <div class="alert-content">
+                                    <h4>Faculty Approval Expiring</h4>
+                                    <p>5 faculty approvals expire in 30 days. Immediate renewal required.</p>
+                                    <span class="alert-time">Due: Jan 15, 2025</span>
+                                </div>
+                                <button class="alert-action">Review Now</button>
+                            </div>
+
+                            <div class="alert-card warning">
+                                <i data-lucide="clock" class="alert-icon"></i>
+                                <div class="alert-content">
+                                    <h4>NAAC Documentation Due</h4>
+                                    <p>Self-study report submission deadline approaching.</p>
+                                    <span class="alert-time">Due: Feb 1, 2025</span>
+                                </div>
+                                <button class="alert-action">Continue</button>
+                            </div>
+
+                            <div class="alert-card info">
+                                <i data-lucide="info" class="alert-icon"></i>
+                                <div class="alert-content">
+                                    <h4>NEP 2020 Policy Update</h4>
+                                    <p>New curriculum guidelines published by Manak Parishad.</p>
+                                    <span class="alert-time">Published: Dec 10, 2025</span>
+                                </div>
+                                <button class="alert-action">View Update</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h2 class="section-subtitle">Quick Actions</h2>
+                        <div class="action-grid">
+                            <button class="action-btn primary">
+                                <i data-lucide="plus" class="action-icon"></i>
+                                <span>Add New Approval</span>
+                            </button>
+                            <button class="action-btn secondary">
+                                <i data-lucide="upload" class="action-icon"></i>
+                                <span>Upload Documents</span>
+                            </button>
+                            <button class="action-btn secondary">
+                                <i data-lucide="download" class="action-icon"></i>
+                                <span>Generate Report</span>
+                            </button>
+                            <button class="action-btn secondary">
+                                <i data-lucide="refresh-cw" class="action-icon"></i>
+                                <span>Run Compliance Check</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Regulatory Council Section -->
+                <section id="regulatory" class="content-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Regulatory Council - Viniyaman Parishad</h1>
+                        <p class="section-subtitle">Manage approvals, permissions, and legal requirements</p>
+                    </div>
+
+                    <div class="module-grid">
+                        <div class="module-card">
+                            <div class="module-header">
+                                <i data-lucide="clipboard-check" class="module-icon"></i>
+                                <h3>Approval Tracker</h3>
+                            </div>
+                            <p>Track mandatory approvals for establishment, faculty, and infrastructure</p>
+                            <div class="module-stats">
+                                <span class="stat-value">12/15</span>
+                                <span class="stat-label">Approvals Complete</span>
+                            </div>
+                            <button class="module-action">View Details</button>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-header">
+                                <i data-lucide="bell" class="module-icon"></i>
+                                <h3>Automated Alerts</h3>
+                            </div>
+                            <p>Get notified about renewal deadlines and inspection schedules</p>
+                            <div class="module-stats">
+                                <span class="stat-value">3</span>
+                                <span class="stat-label">Active Alerts</span>
+                            </div>
+                            <button class="module-action">Manage Alerts</button>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-header">
+                                <i data-lucide="archive" class="module-icon"></i>
+                                <h3>Document Vault</h3>
+                            </div>
+                            <p>Secure storage for approvals, licenses, and certificates</p>
+                            <div class="module-stats">
+                                <span class="stat-value">247</span>
+                                <span class="stat-label">Documents Stored</span>
+                            </div>
+                            <button class="module-action">Browse Documents</button>
+                        </div>
+                    </div>
+
+                    <!-- Recent Approvals Table -->
+                    <div class="table-section">
+                        <div class="table-header">
+                            <h3>Recent Approvals</h3>
+                            <button class="btn-primary">Add New Approval</button>
+                        </div>
+                        <div class="data-table">
+                            <div class="table-row table-header-row">
+                                <div class="table-cell">Approval Type</div>
+                                <div class="table-cell">Institution</div>
+                                <div class="table-cell">Valid Until</div>
+                                <div class="table-cell">Status</div>
+                                <div class="table-cell">Actions</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell">
+                                    <strong>Establishment License</strong>
+                                    <small>Primary School License</small>
+                                </div>
+                                <div class="table-cell">Delhi Public School</div>
+                                <div class="table-cell">Dec 2026</div>
+                                <div class="table-cell">
+                                    <span class="status-pill safe">Active</span>
+                                </div>
+                                <div class="table-cell">
+                                    <button class="icon-btn"><i data-lucide="eye"></i></button>
+                                    <button class="icon-btn"><i data-lucide="edit"></i></button>
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell">
+                                    <strong>Faculty Registration</strong>
+                                    <small>Teaching Staff Approval</small>
+                                </div>
+                                <div class="table-cell">Delhi Public School</div>
+                                <div class="table-cell">Jan 2025</div>
+                                <div class="table-cell">
+                                    <span class="status-pill warning">Expiring Soon</span>
+                                </div>
+                                <div class="table-cell">
+                                    <button class="icon-btn"><i data-lucide="eye"></i></button>
+                                    <button class="icon-btn"><i data-lucide="edit"></i></button>
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell">
+                                    <strong>Infrastructure Approval</strong>
+                                    <small>Building Safety Certificate</small>
+                                </div>
+                                <div class="table-cell">Delhi Public School</div>
+                                <div class="table-cell">Mar 2027</div>
+                                <div class="table-cell">
+                                    <span class="status-pill safe">Active</span>
+                                </div>
+                                <div class="table-cell">
+                                    <button class="icon-btn"><i data-lucide="eye"></i></button>
+                                    <button class="icon-btn"><i data-lucide="edit"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Standards Council Section -->
+                <section id="standards" class="content-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Standards Council - Manak Parishad</h1>
+                        <p class="section-subtitle">Academic quality, teaching standards, and curriculum compliance</p>
+                    </div>
+
+                    <div class="module-grid">
+                        <div class="module-card">
+                            <div class="module-header">
+                                <i data-lucide="book-open" class="module-icon"></i>
+                                <h3>Curriculum Tracker</h3>
+                            </div>
+                            <p>Ensure syllabus meets NEP 2020 and board requirements</p>
+                            <div class="module-stats">
+                                <span class="stat-value">95%</span>
+                                <span class="stat-label">Compliance Rate</span>
+                            </div>
+                            <button class="module-action">Review Curriculum</button>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-header">
+                                <i data-lucide="users" class="module-icon"></i>
+                                <h3>Faculty Credentials</h3>
+                            </div>
+                            <p>Track teacher qualifications, training, and certifications</p>
+                            <div class="module-stats">
+                                <span class="stat-value">45/48</span>
+                                <span class="stat-label">Certified Faculty</span>
+                            </div>
+                            <button class="module-action">Manage Faculty</button>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-header">
+                                <i data-lucide="star" class="module-icon"></i>
+                                <h3>Quality Audit</h3>
+                            </div>
+                            <p>AI-assisted evaluation of teaching methods and lesson plans</p>
+                            <div class="module-stats">
+                                <span class="stat-value">4.2/5</span>
+                                <span class="stat-label">Quality Score</span>
+                            </div>
+                            <button class="module-action">Run Audit</button>
+                        </div>
+                    </div>
+
+                    <!-- Faculty Credentials Table -->
+                    <div class="table-section">
+                        <div class="table-header">
+                            <h3>Faculty Credential Status</h3>
+                            <button class="btn-primary">Add Faculty Member</button>
+                        </div>
+                        <div class="data-table">
+                            <div class="table-row table-header-row">
+                                <div class="table-cell">Faculty Member</div>
+                                <div class="table-cell">Subject</div>
+                                <div class="table-cell">Qualification</div>
+                                <div class="table-cell">Training Status</div>
+                                <div class="table-cell">Actions</div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell">
+                                    <strong>Dr. Priya Sharma</strong>
+                                    <small>Mathematics Department</small>
+                                </div>
+                                <div class="table-cell">Mathematics</div>
+                                <div class="table-cell">M.Sc., B.Ed.</div>
+                                <div class="table-cell">
+                                    <span class="status-pill safe">Up to Date</span>
+                                </div>
+                                <div class="table-cell">
+                                    <button class="icon-btn"><i data-lucide="eye"></i></button>
+                                    <button class="icon-btn"><i data-lucide="edit"></i></button>
+                                </div>
+                            </div>
+                            <div class="table-row">
+                                <div class="table-cell">
+                                    <strong>Rajesh Kumar</strong>
+                                    <small>Science Department</small>
+                                </div>
+                                <div class="table-cell">Physics</div>
+                                <div class="table-cell">M.Sc.</div>
+                                <div class="table-cell">
+                                    <span class="status-pill warning">Training Due</span>
+                                </div>
+                                <div class="table-cell">
+                                    <button class="icon-btn"><i data-lucide="eye"></i></button>
+                                    <button class="icon-btn"><i data-lucide="edit"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Accreditation Council Section -->
+                <section id="accreditation" class="content-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Accreditation Council - Gunvatta Parishad</h1>
+                        <p class="section-subtitle">Institutional grading and accreditation readiness</p>
+                    </div>
+
+                    <div class="module-grid">
+                        <div class="module-card">
+                            <div class="module-header">
+                                <i data-lucide="target" class="module-icon"></i>
+                                <h3>Accreditation Readiness</h3>
+                            </div>
+                            <p>Track criteria for NAAC, AICTE, UGC, and state board accreditation</p>
+                            <div class="module-stats">
+                                <span class="stat-value">72%</span>
+                                <span class="stat-label">Readiness Score</span>
+                            </div>
+                            <button class="module-action">Check Readiness</button>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-header">
+                                <i data-lucide="search" class="module-icon"></i>
+                                <h3>Self-Audit Reports</h3>
+                            </div>
+                            <p>Generate pre-accreditation audit reports and identify gaps</p>
+                            <div class="module-stats">
+                                <span class="stat-value">8</span>
+                                <span class="stat-label">Completed Audits</span>
+                            </div>
+                            <button class="module-action">Generate Report</button>
+                        </div>
+
+                        <div class="module-card">
+                            <div class="module-header">
+                                <i data-lucide="trending-up" class="module-icon"></i>
+                                <h3>Gap Analysis</h3>
+                            </div>
+                            <p>Compare institution data against accreditation standards</p>
+                            <div class="module-stats">
+                                <span class="stat-value">15</span>
+                                <span class="stat-label">Gaps Identified</span>
+                            </div>
+                            <button class="module-action">View Analysis</button>
+                        </div>
+                    </div>
+
+                    <!-- Accreditation Readiness Checklist -->
+                    <div class="checklist-section">
+                        <h3>NAAC Accreditation Readiness Checklist</h3>
+                        <div class="checklist-grid">
+                            <div class="checklist-item">
+                                <div class="checklist-header">
+                                    <h4>Curricular Aspects</h4>
+                                    <span class="progress-text">85%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checklist-header">
+                                    <h4>Teaching-Learning & Evaluation</h4>
+                                    <span class="progress-text">92%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 92%"></div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checklist-header">
+                                    <h4>Research, Innovations & Extension</h4>
+                                    <span class="progress-text">68%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 68%"></div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checklist-header">
+                                    <h4>Infrastructure & Learning Resources</h4>
+                                    <span class="progress-text">78%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 78%"></div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checklist-header">
+                                    <h4>Student Support & Progression</h4>
+                                    <span class="progress-text">88%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 88%"></div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checklist-header">
+                                    <h4>Governance & Leadership</h4>
+                                    <span class="progress-text">95%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div class="checklist-item">
+                                <div class="checklist-header">
+                                    <h4>Institutional Values & Best Practices</h4>
+                                    <span class="progress-text">82%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 82%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Alerts Section -->
+                <section id="alerts" class="content-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Alerts & Reminders</h1>
+                        <p class="section-subtitle">Automated notifications for deadlines and compliance requirements</p>
+                    </div>
+
+                    <div class="alerts-management">
+                        <div class="alert-filters">
+                            <button class="filter-btn active" data-filter="all">All Alerts</button>
+                            <button class="filter-btn" data-filter="critical">Critical</button>
+                            <button class="filter-btn" data-filter="warning">Warning</button>
+                            <button class="filter-btn" data-filter="info">Information</button>
+                        </div>
+
+                        <div class="alerts-list">
+                            <div class="alert-item critical">
+                                <div class="alert-priority">Critical</div>
+                                <div class="alert-content">
+                                    <h4>Faculty Registration Renewal Required</h4>
+                                    <p>5 faculty members require registration renewal by January 15, 2025. Failure to renew may result in compliance violations.</p>
+                                    <div class="alert-meta">
+                                        <span class="alert-category">Regulatory Council</span>
+                                        <span class="alert-deadline">Due: Jan 15, 2025</span>
+                                    </div>
+                                </div>
+                                <div class="alert-actions">
+                                    <button class="btn-secondary">Mark Resolved</button>
+                                    <button class="btn-primary">Take Action</button>
+                                </div>
+                            </div>
+
+                            <div class="alert-item warning">
+                                <div class="alert-priority">Warning</div>
+                                <div class="alert-content">
+                                    <h4>NAAC Documentation Due</h4>
+                                    <p>Self-study report and supporting documents for NAAC accreditation due February 1, 2025.</p>
+                                    <div class="alert-meta">
+                                        <span class="alert-category">Accreditation Council</span>
+                                        <span class="alert-deadline">Due: Feb 1, 2025</span>
+                                    </div>
+                                </div>
+                                <div class="alert-actions">
+                                    <button class="btn-secondary">Snooze</button>
+                                    <button class="btn-primary">Continue</button>
+                                </div>
+                            </div>
+
+                            <div class="alert-item warning">
+                                <div class="alert-priority">Warning</div>
+                                <div class="alert-content">
+                                    <h4>Faculty Training Update Required</h4>
+                                    <p>3 faculty members need to complete mandatory training updates for NEP 2020 implementation.</p>
+                                    <div class="alert-meta">
+                                        <span class="alert-category">Standards Council</span>
+                                        <span class="alert-deadline">Due: Jan 20, 2025</span>
+                                    </div>
+                                </div>
+                                <div class="alert-actions">
+                                    <button class="btn-secondary">Remind Later</button>
+                                    <button class="btn-primary">Assign Training</button>
+                                </div>
+                            </div>
+
+                            <div class="alert-item info">
+                                <div class="alert-priority">Info</div>
+                                <div class="alert-content">
+                                    <h4>New NEP 2020 Guidelines Published</h4>
+                                    <p>Manak Parishad has published updated curriculum guidelines effective from academic year 2025-26.</p>
+                                    <div class="alert-meta">
+                                        <span class="alert-category">Standards Council</span>
+                                        <span class="alert-date">Published: Dec 10, 2025</span>
+                                    </div>
+                                </div>
+                                <div class="alert-actions">
+                                    <button class="btn-secondary">Dismiss</button>
+                                    <button class="btn-primary">Review Guidelines</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reports Section -->
+                <section id="reports" class="content-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Reports & Analytics</h1>
+                        <p class="section-subtitle">Comprehensive compliance reports and performance analytics</p>
+                    </div>
+
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <i data-lucide="file-text" class="report-icon"></i>
+                                <h3>Compliance Summary Report</h3>
+                            </div>
+                            <p>Overall compliance status across all councils with detailed breakdown</p>
+                            <div class="report-meta">
+                                <span class="report-date">Generated: Dec 16, 2025</span>
+                                <span class="report-status ready">Ready</span>
+                            </div>
+                            <button class="report-action">Generate Report</button>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">
+                                <i data-lucide="calendar" class="report-icon"></i>
+                                <h3>Monthly Compliance Audit</h3>
+                            </div>
+                            <p>Detailed monthly audit covering all regulatory requirements</p>
+                            <div class="report-meta">
+                                <span class="report-date">Period: December 2025</span>
+                                <span class="report-status pending">Pending</span>
+                            </div>
+                            <button class="report-action">Run Audit</button>
+                        </div>
+
+                        <div class="report-card">
+                            <div class="report-header">
+                                <i data-lucide="trending-up" class="report-icon"></i>
+                                <h3>Performance Analytics</h3>
+                            </div>
+                            <p>Trend analysis and benchmarking against peer institutions</p>
+                            <div class="report-meta">
+                                <span class="report-date">Last Updated: Dec 15, 2025</span>
+                                <span class="report-status ready">Ready</span>
+                            </div>
+                            <button class="report-action">View Analytics</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings" class="content-section">
+                    <div class="section-header">
+                        <h1 class="section-title">Settings & Configuration</h1>
+                        <p class="section-subtitle">Manage application settings and user preferences</p>
+                    </div>
+
+                    <div class="settings-grid">
+                        <div class="settings-card">
+                            <h3>Notification Preferences</h3>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <span>Email Notifications</span>
+                                    <input type="checkbox" checked>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <span>SMS Alerts</span>
+                                    <input type="checkbox">
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <span>Push Notifications</span>
+                                    <input type="checkbox" checked>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>User Management</h3>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <span>Role-based Access</span>
+                                    <input type="checkbox" checked>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <span>Two-Factor Authentication</span>
+                                    <input type="checkbox">
+                                </label>
+                            </div>
+                            <button class="btn-primary">Manage Users</button>
+                        </div>
+
+                        <div class="settings-card">
+                            <h3>Data & Security</h3>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <span>Auto Backup</span>
+                                    <input type="checkbox" checked>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="setting-label">
+                                    <span>Audit Logging</span>
+                                    <input type="checkbox" checked>
+                                </label>
+                            </div>
+                            <button class="btn-secondary">Export Data</button>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- AI Assistant Modal -->
+    <div id="ai-assistant" class="ai-assistant">
+        <div class="ai-toggle" onclick="toggleAI()">
+            <i data-lucide="message-circle" class="ai-icon"></i>
+        </div>
+        <div class="ai-chat hidden">
+            <div class="ai-header">
+                <h3>Compliance Assistant</h3>
+                <button onclick="toggleAI()"><i data-lucide="x"></i></button>
+            </div>
+            <div class="ai-messages">
+                <div class="ai-message">
+                    <div class="ai-avatar">AI</div>
+                    <div class="ai-text">Hello! I'm your compliance assistant. How can I help you today?</div>
+                </div>
+            </div>
+            <div class="ai-input">
+                <input type="text" placeholder="Ask about compliance requirements...">
+                <button><i data-lucide="send"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
