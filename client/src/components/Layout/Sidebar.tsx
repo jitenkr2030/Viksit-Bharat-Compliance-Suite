@@ -49,7 +49,7 @@ const Sidebar: React.FC = () => {
   const location = useLocation();
   const { user, logout } = useAuth();
   const { data: notificationSummary } = useNotificationSummary();
-  const [expandedSections, setExpandedSections] = useState<string[]>(['phase1', 'phase2', 'phase3']);
+  const [expandedSections, setExpandedSections] = useState<string[]>(['phase1', 'phase2', 'phase3', 'phase4']);
 
   const toggleSection = (sectionId: string) => {
     setExpandedSections(prev => 
@@ -168,6 +168,48 @@ const Sidebar: React.FC = () => {
         },
       ],
     },
+    {
+      id: 'phase4',
+      label: 'Fully Autonomous Management',
+      icon: <Activity className="w-5 h-5" />,
+      permission: 'manage_compliance',
+      children: [
+        {
+          id: 'phase4-overview',
+          label: 'Overview',
+          icon: <BarChart3 className="w-4 h-4" />,
+          path: '/phase4',
+        },
+        {
+          id: 'autonomous-systems',
+          label: 'System Management',
+          icon: <Settings className="w-4 h-4" />,
+          path: '/autonomous-systems',
+          permission: 'manage_ai_systems',
+        },
+        {
+          id: 'autonomous-decisions',
+          label: 'Decision Management',
+          icon: <Brain className="w-4 h-4" />,
+          path: '/autonomous-decisions',
+          permission: 'manage_ai_systems',
+        },
+        {
+          id: 'autonomous-tasks',
+          label: 'Task Automation',
+          icon: <Zap className="w-4 h-4" />,
+          path: '/autonomous-tasks',
+          permission: 'manage_ai_systems',
+        },
+        {
+          id: 'autonomous-optimizations',
+          label: 'System Optimization',
+          icon: <TrendingUp className="w-4 h-4" />,
+          path: '/autonomous-optimizations',
+          permission: 'manage_ai_systems',
+        },
+      ],
+    },
     // Council-specific sections
     {
       id: 'councils',
@@ -268,6 +310,13 @@ const Sidebar: React.FC = () => {
     }
     if (path === '/phase3') {
       return location.pathname === '/phase3' || location.pathname === '/blockchain' || location.pathname === '/iot-integration' || location.pathname === '/ai-assistant';
+    }
+    if (path === '/phase4') {
+      return location.pathname === '/phase4' || 
+             location.pathname === '/autonomous-systems' || 
+             location.pathname === '/autonomous-decisions' || 
+             location.pathname === '/autonomous-tasks' || 
+             location.pathname === '/autonomous-optimizations';
     }
     return location.pathname === path || location.pathname.startsWith(path + '/');
   };

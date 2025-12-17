@@ -26,6 +26,15 @@ const IoTSensorData = require('./IoTSensorData');
 const AIAssistant = require('./AIAssistant');
 const AIChatMessage = require('./AIChatMessage');
 
+// Phase 4 Models - Autonomous Compliance Management
+const AutonomousSystem = require('./AutonomousSystem');
+const AutonomousDecision = require('./AutonomousDecision');
+const AutonomousTask = require('./AutonomousTask');
+const AutonomousOptimization = require('./AutonomousOptimization');
+const DecisionDependency = require('./DecisionDependency');
+const TaskDependency = require('./TaskDependency');
+const OptimizationDependency = require('./OptimizationDependency');
+
 // Define model associations
 const defineAssociations = () => {
   // User-Institution Association
@@ -195,6 +204,81 @@ const defineAssociations = () => {
   // AI assistant can generate compliance insights from IoT data
   IoTDevice.hasMany(AIAssistant, { foreignKey: 'sourceDeviceId', as: 'generatedSessions' });
   AIAssistant.belongsTo(IoTDevice, { foreignKey: 'sourceDeviceId', as: 'sourceDevice' });
+
+  // Phase 4: Autonomous System Associations
+  // Autonomous systems can be supervised by users
+  User.hasMany(AutonomousSystem, { foreignKey: 'supervisorId', as: 'supervisedSystems' });
+  AutonomousSystem.belongsTo(User, { foreignKey: 'supervisorId', as: 'supervisor' });
+
+  Institution.hasMany(AutonomousSystem, { foreignKey: 'institutionId', as: 'autonomousSystems' });
+  AutonomousSystem.belongsTo(Institution, { foreignKey: 'institutionId', as: 'institution' });
+
+  // Phase 4: Autonomous Decision Associations
+  AutonomousSystem.hasMany(AutonomousDecision, { foreignKey: 'systemId', as: 'decisions' });
+  AutonomousDecision.belongsTo(AutonomousSystem, { foreignKey: 'systemId', as: 'system' });
+
+  User.hasMany(AutonomousDecision, { foreignKey: 'humanReviewerId', as: 'reviewedDecisions' });
+  AutonomousDecision.belongsTo(User, { foreignKey: 'humanReviewerId', as: 'humanReviewer' });
+
+  // Phase 4: Autonomous Task Associations
+  AutonomousSystem.hasMany(AutonomousTask, { foreignKey: 'systemId', as: 'tasks' });
+  AutonomousTask.belongsTo(AutonomousSystem, { foreignKey: 'systemId', as: 'system' });
+
+  AutonomousDecision.hasMany(AutonomousTask, { foreignKey: 'triggerDecisionId', as: 'triggeredTasks' });
+  AutonomousTask.belongsTo(AutonomousDecision, { foreignKey: 'triggerDecisionId', as: 'triggerDecision' });
+
+  User.hasMany(AutonomousTask, { foreignKey: 'approvedBy', as: 'approvedTasks' });
+  AutonomousTask.belongsTo(User, { foreignKey: 'approvedBy', as: 'approver' });
+
+  // Phase 4: Autonomous Optimization Associations
+  AutonomousSystem.hasMany(AutonomousOptimization, { foreignKey: 'systemId', as: 'optimizations' });
+  AutonomousOptimization.belongsTo(AutonomousSystem, { foreignKey: 'systemId', as: 'system' });
+
+  User.hasMany(AutonomousOptimization, { foreignKey: 'approvedBy', as: 'approvedOptimizations' });
+  AutonomousOptimization.belongsTo(User, { foreignKey: 'approvedBy', as: 'approver' });
+
+  // Phase 4: Dependency Associations
+  // Decision Dependencies
+  AutonomousDecision.hasMany(DecisionDependency, { foreignKey: 'decisionId', as: 'dependencies' });
+  DecisionDependency.belongsTo(AutonomousDecision, { foreignKey: 'decisionId', as: 'decision' });
+
+  AutonomousDecision.hasMany(DecisionDependency, { foreignKey: 'dependsOnDecisionId', as: 'dependents' });
+  DecisionDependency.belongsTo(AutonomousDecision, { foreignKey: 'dependsOnDecisionId', as: 'dependsOnDecision' });
+
+  // Task Dependencies
+  AutonomousTask.hasMany(TaskDependency, { foreignKey: 'taskId', as: 'dependencyRelations' });
+  TaskDependency.belongsTo(AutonomousTask, { foreignKey: 'taskId', as: 'task' });
+
+  AutonomousTask.hasMany(TaskDependency, { foreignKey: 'dependsOnTaskId', as: 'dependentTasks' });
+  TaskDependency.belongsTo(AutonomousTask, { foreignKey: 'dependsOnTaskId', as: 'dependsOnTask' });
+
+  // Optimization Dependencies
+  AutonomousOptimization.hasMany(OptimizationDependency, { foreignKey: 'optimizationId', as: 'dependencies' });
+  OptimizationDependency.belongsTo(AutonomousOptimization, { foreignKey: 'optimizationId', as: 'optimization' });
+
+  AutonomousOptimization.hasMany(OptimizationDependency, { foreignKey: 'dependsOnOptimizationId', as: 'dependents' });
+  OptimizationDependency.belongsTo(AutonomousOptimization, { foreignKey: 'dependsOnOptimizationId', as: 'dependsOnOptimization' });
+
+  // Cross-phase integrations for Phase 4
+  // Autonomous systems can use IoT data for compliance monitoring
+  IoTSensorData.hasMany(AutonomousSystem, { foreignKey: 'iotDataSourceId', as: 'sourceSystems' });
+  AutonomousSystem.belongsTo(IoTSensorData, { foreignKey: 'iotDataSourceId', as: 'iotDataSource' });
+
+  // Autonomous decisions can reference blockchain records
+  BlockchainRecord.hasMany(AutonomousDecision, { foreignKey: 'blockchainRecordId', as: 'referencedInDecisions' });
+  AutonomousDecision.belongsTo(BlockchainRecord, { foreignKey: 'blockchainRecordId', as: 'blockchainRecord' });
+
+  // Autonomous tasks can generate blockchain records for compliance
+  AutonomousTask.hasMany(BlockchainRecord, { foreignKey: 'generatedByTaskId', as: 'blockchainRecords' });
+  BlockchainRecord.belongsTo(AutonomousTask, { foreignKey: 'generatedByTaskId', as: 'generatingTask' });
+
+  // AI assistants can be integrated into autonomous systems
+  AIAssistant.hasMany(AutonomousSystem, { foreignKey: 'aiAssistantId', as: 'integratedSystems' });
+  AutonomousSystem.belongsTo(AIAssistant, { foreignKey: 'aiAssistantId', as: 'aiAssistant' });
+
+  // Autonomous systems can manage compliance deadlines
+  ComplianceDeadline.hasMany(AutonomousSystem, { foreignKey: 'managedDeadlineId', as: 'managedSystems' });
+  AutonomousSystem.belongsTo(ComplianceDeadline, { foreignKey: 'managedDeadlineId', as: 'managedDeadline' });
 };
 
 // Export all models
@@ -219,7 +303,15 @@ const models = {
   IoTDevice,
   IoTSensorData,
   AIAssistant,
-  AIChatMessage
+  AIChatMessage,
+  // Phase 4 Models
+  AutonomousSystem,
+  AutonomousDecision,
+  AutonomousTask,
+  AutonomousOptimization,
+  DecisionDependency,
+  TaskDependency,
+  OptimizationDependency
 };
 
 // Initialize associations

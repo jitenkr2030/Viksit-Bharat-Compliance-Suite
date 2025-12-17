@@ -35,6 +35,9 @@ const blockchainRoutes = require('./routes/blockchain');
 const iotRoutes = require('./routes/iot');
 const aiAssistantRoutes = require('./routes/aiAssistant');
 
+// Phase 4 Routes - Fully Autonomous Compliance Management
+const autonomousSystemRoutes = require('./routes/autonomousSystem');
+
 // Import middleware
 const { errorHandler } = require('./middleware/errorHandler');
 const { requestLogger } = require('./middleware/logger');
@@ -126,6 +129,9 @@ app.use('/api/executive-analytics', authenticateToken, executiveAnalyticsRoutes)
 app.use('/api/blockchain', authenticateToken, blockchainRoutes);
 app.use('/api/iot', authenticateToken, iotRoutes);
 app.use('/api/ai-assistant', authenticateToken, aiAssistantRoutes);
+
+// Phase 4 Routes - Fully Autonomous Compliance Management
+app.use('/api/autonomous-system', authenticateToken, autonomousSystemRoutes);
 
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {

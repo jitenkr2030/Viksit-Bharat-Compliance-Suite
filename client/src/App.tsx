@@ -34,6 +34,7 @@ const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
 const Phase1Page = React.lazy(() => import('./pages/Phase1/Phase1Page'));
 const Phase2Page = React.lazy(() => import('./pages/Phase2/Phase2Page'));
 const Phase3Page = React.lazy(() => import('./components/Phase3/Phase3Page'));
+const Phase4Page = React.lazy(() => import('./components/AutonomousSystem'));
 
 // Protected Route Component
 interface ProtectedRouteProps {
@@ -277,6 +278,58 @@ const AppRoutes: React.FC = () => {
               <ProtectedRoute requiredPermissions={['use_ai_assistant']}>
                 <Suspense fallback={<LoadingSpinner />}>
                   <Phase3Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Phase 4: Long-term Impact - Fully Autonomous Compliance Management */}
+          <Route
+            path="phase4"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_compliance', 'view_analytics', 'manage_ai_systems']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase4Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="autonomous-systems"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_ai_systems']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase4Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="autonomous-decisions"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_ai_systems', 'approve_decisions']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase4Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="autonomous-tasks"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_ai_systems']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase4Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="autonomous-optimizations"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_ai_systems', 'view_analytics']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase4Page />
                 </Suspense>
               </ProtectedRoute>
             }
