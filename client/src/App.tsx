@@ -32,6 +32,7 @@ const ProfilePage = React.lazy(() => import('./pages/Profile/ProfilePage'));
 
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
 const Phase1Page = React.lazy(() => import('./pages/Phase1/Phase1Page'));
+const Phase2Page = React.lazy(() => import('./pages/Phase2Page'));
 
 // Protected Route Component
 interface ProtectedRouteProps {
@@ -191,6 +192,48 @@ const AppRoutes: React.FC = () => {
               <ProtectedRoute requiredPermissions={['manage_compliance']}>
                 <Suspense fallback={<LoadingSpinner />}>
                   <Phase1Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* Phase 2: Advanced Features - Government Portal Integration, AI Document Processing, Executive Analytics */}
+          <Route
+            path="phase2"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_compliance', 'view_analytics']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase2Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="government-portal"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_compliance']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase2Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="ai-documents"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_documents']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase2Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="executive-analytics"
+            element={
+              <ProtectedRoute requiredPermissions={['view_analytics']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase2Page />
                 </Suspense>
               </ProtectedRoute>
             }

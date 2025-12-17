@@ -21,7 +21,10 @@ import {
   Home,
   LogOut,
   User,
-  HelpCircle
+  HelpCircle,
+  Globe,
+  Brain,
+  Zap
 } from 'lucide-react';
 import { useAuth } from '../../contexts/AuthContext';
 import { Button } from '../ui/button';
@@ -42,7 +45,7 @@ const Sidebar: React.FC = () => {
   const location = useLocation();
   const { user, logout } = useAuth();
   const { data: notificationSummary } = useNotificationSummary();
-  const [expandedSections, setExpandedSections] = useState<string[]>(['phase1']);
+  const [expandedSections, setExpandedSections] = useState<string[]>(['phase1', 'phase2']);
 
   const toggleSection = (sectionId: string) => {
     setExpandedSections(prev => 
@@ -90,6 +93,40 @@ const Sidebar: React.FC = () => {
           icon: <Bell className="w-4 h-4" />,
           path: '/critical-alerts',
           badge: notificationSummary?.pending || 0,
+        },
+      ],
+    },
+    {
+      id: 'phase2',
+      label: 'Advanced Features',
+      icon: <Zap className="w-5 h-5" />,
+      permission: 'manage_compliance',
+      children: [
+        {
+          id: 'phase2-overview',
+          label: 'Overview',
+          icon: <BarChart3 className="w-4 h-4" />,
+          path: '/phase2',
+        },
+        {
+          id: 'government-portal',
+          label: 'Portal Integration',
+          icon: <Globe className="w-4 h-4" />,
+          path: '/government-portal',
+        },
+        {
+          id: 'ai-documents',
+          label: 'AI Document Processing',
+          icon: <Brain className="w-4 h-4" />,
+          path: '/ai-documents',
+          permission: 'manage_documents',
+        },
+        {
+          id: 'executive-analytics',
+          label: 'Executive Analytics',
+          icon: <TrendingUp className="w-4 h-4" />,
+          path: '/executive-analytics',
+          permission: 'view_analytics',
         },
       ],
     },
@@ -187,6 +224,9 @@ const Sidebar: React.FC = () => {
     if (!path) return false;
     if (path === '/phase1') {
       return location.pathname === '/phase1' || location.pathname === '/risk-assessment' || location.pathname === '/critical-alerts';
+    }
+    if (path === '/phase2') {
+      return location.pathname === '/phase2' || location.pathname === '/government-portal' || location.pathname === '/ai-documents' || location.pathname === '/executive-analytics';
     }
     return location.pathname === path || location.pathname.startsWith(path + '/');
   };
