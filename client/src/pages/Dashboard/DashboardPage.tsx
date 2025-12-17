@@ -17,6 +17,10 @@ import {
 import LoadingSpinner from '../../components/ui/LoadingSpinner';
 import { dashboardAPI } from '../../services/api';
 import { formatNumber, formatRelativeTime } from '../../lib/utils';
+import { Link } from 'react-router-dom';
+import { Button } from '../../components/ui/button';
+import DashboardWidgets from '../../components/Phase1/DashboardWidgets';
+import { useNotificationSummary, useDeadlineSummary, useRiskSummary } from '../../hooks/usePhase1';
 
 const DashboardPage: React.FC = () => {
   // Fetch dashboard data
@@ -37,7 +41,12 @@ const DashboardPage: React.FC = () => {
     queryFn: dashboardAPI.getRiskAssessment,
   });
 
-  if (overviewLoading || activitiesLoading || riskLoading) {
+  // Fetch Phase 1 data
+  const { data: notificationSummary, isLoading: phase1Loading } = useNotificationSummary();
+  const { data: deadlineSummary } = useDeadlineSummary();
+  const { data: riskSummary } = useRiskSummary();
+
+  if (overviewLoading || activitiesLoading || riskLoading || phase1Loading) {
     return (
       <div className="flex items-center justify-center min-h-96">
         <LoadingSpinner size="large" />
@@ -167,6 +176,39 @@ const DashboardPage: React.FC = () => {
           </div>
         </motion.div>
       </div>
+
+      {/* Phase 1: Critical Penalty Avoidance Features */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg border border-blue-200 p-6"
+      >
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <div className="p-2 bg-blue-100 rounded-lg">
+              <Shield className="w-6 h-6 text-blue-600" />
+            </div>
+            <div>
+              <h2 className="text-xl font-semibold text-gray-900">Phase 1: Critical Penalty Avoidance</h2>
+              <p className="text-sm text-gray-600">AI-powered risk assessment and smart deadline management</p>
+            </div>
+          </div>
+          <Link to="/phase1">
+            <Button className="bg-blue-600 hover:bg-blue-700">
+              <Shield className="w-4 h-4 mr-2" />
+              Access Phase 1
+            </Button>
+          </Link>
+        </div>
+        
+        <DashboardWidgets
+          notificationSummary={notificationSummary}
+          deadlineSummary={deadlineSummary}
+          riskSummary={riskSummary}
+          isLoading={phase1Loading}
+        />
+      </motion.div>
 
       {/* Overview Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">

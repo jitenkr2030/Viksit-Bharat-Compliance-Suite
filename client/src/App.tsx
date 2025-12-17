@@ -31,6 +31,7 @@ const SettingsPage = React.lazy(() => import('./pages/Settings/SettingsPage'));
 const ProfilePage = React.lazy(() => import('./pages/Profile/ProfilePage'));
 
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
+const Phase1Page = React.lazy(() => import('./pages/Phase1/Phase1Page'));
 
 // Protected Route Component
 interface ProtectedRouteProps {
@@ -160,6 +161,38 @@ const AppRoutes: React.FC = () => {
               <Suspense fallback={<LoadingSpinner />}>
                 <DashboardPage />
               </Suspense>
+            }
+          />
+
+          {/* Phase 1: Critical Penalty Avoidance Features */}
+          <Route
+            path="phase1"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_compliance']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase1Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="risk-assessment"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_compliance']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase1Page />
+                </Suspense>
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="critical-alerts"
+            element={
+              <ProtectedRoute requiredPermissions={['manage_compliance']}>
+                <Suspense fallback={<LoadingSpinner />}>
+                  <Phase1Page />
+                </Suspense>
+              </ProtectedRoute>
             }
           />
 
