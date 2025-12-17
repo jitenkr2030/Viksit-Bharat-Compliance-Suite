@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult, query } = require('express-validator');
-const { authenticate, authorize } = require('../middleware/auth');
+const { authenticateToken, restrictTo } = require('../middleware/auth');
 const { handleValidationErrors } = require('../middleware/validation');
 const logger = require('../middleware/logger');
 
 // Get all reports
-router.get('/', authenticate, async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const { type, status, institutionId, page = 1, limit = 20 } = req.query;
     
@@ -133,7 +133,7 @@ router.get('/', authenticate, async (req, res) => {
 
 // Generate new report
 router.post('/generate',
-  authenticate,
+  authenticateToken,
   [
     body('type').isIn([
       'compliance_summary',
@@ -202,7 +202,7 @@ router.post('/generate',
 );
 
 // Get report by ID
-router.get('/:id', authenticate, async (req, res) => {
+router.get('/:id', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -259,7 +259,7 @@ router.get('/:id', authenticate, async (req, res) => {
 });
 
 // Download report
-router.get('/:id/download', authenticate, async (req, res) => {
+router.get('/:id/download', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -290,8 +290,8 @@ router.get('/:id/download', authenticate, async (req, res) => {
 
 // Delete report
 router.delete('/:id',
-  authenticate,
-  authorize(['admin', 'report_owner']),
+  authenticateToken,
+  restrictTo(['admin', 'report_owner']),
   async (req, res) => {
     try {
       const { id } = req.params;
@@ -314,7 +314,7 @@ router.delete('/:id',
 
 // Get report templates
 router.get('/templates/available',
-  authenticate,
+  authenticateToken,
   async (req, res) => {
     try {
       const templates = [

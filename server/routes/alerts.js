@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult, query } = require('express-validator');
-const { authenticate, authorize } = require('../middleware/auth');
+const { authenticateToken, restrictTo } = require('../middleware/auth');
 const { handleValidationErrors } = require('../middleware/validation');
 const logger = require('../middleware/logger');
 
 // Get all alerts for user
-router.get('/', authenticate, async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const { status, type, priority, page = 1, limit = 20 } = req.query;
     const userId = req.user.id;
@@ -132,8 +132,8 @@ router.get('/', authenticate, async (req, res) => {
 
 // Create new alert
 router.post('/',
-  authenticate,
-  authorize(['admin', 'regulatory_officer', 'standards_officer', 'accreditation_officer']),
+  authenticateToken,
+  restrictTo(['admin', 'regulatory_officer', 'standards_officer', 'accreditation_officer']),
   [
     body('title').notEmpty().withMessage('Title is required'),
     body('message').notEmpty().withMessage('Message is required'),
@@ -217,7 +217,7 @@ router.post('/',
 );
 
 // Mark alert as read
-router.patch('/:id/read', authenticate, async (req, res) => {
+router.patch('/:id/read', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -238,7 +238,7 @@ router.patch('/:id/read', authenticate, async (req, res) => {
 });
 
 // Mark multiple alerts as read
-router.patch('/read-multiple', authenticate, async (req, res) => {
+router.patch('/read-multiple', authenticateToken, async (req, res) => {
   try {
     const { alertIds } = req.body;
     
@@ -266,7 +266,7 @@ router.patch('/read-multiple', authenticate, async (req, res) => {
 });
 
 // Dismiss alert
-router.patch('/:id/dismiss', authenticate, async (req, res) => {
+router.patch('/:id/dismiss', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     const { reason } = req.body;
@@ -288,7 +288,7 @@ router.patch('/:id/dismiss', authenticate, async (req, res) => {
 });
 
 // Get alert statistics
-router.get('/stats', authenticate, async (req, res) => {
+router.get('/stats', authenticateToken, async (req, res) => {
   try {
     const userId = req.user.id;
     
@@ -330,8 +330,8 @@ router.get('/stats', authenticate, async (req, res) => {
 
 // Delete alert (admin only)
 router.delete('/:id',
-  authenticate,
-  authorize(['admin']),
+  authenticateToken,
+  restrictTo(['admin']),
   async (req, res) => {
     try {
       const { id } = req.params;
@@ -355,8 +355,8 @@ router.delete('/:id',
 
 // Bulk operations for admins
 router.post('/bulk-actions',
-  authenticate,
-  authorize(['admin']),
+  authenticateToken,
+  restrictTo(['admin']),
   [
     body('action').isIn(['mark_read', 'dismiss', 'delete']).withMessage('Invalid bulk action'),
     body('alertIds').isArray({ min: 1 }).withMessage('Alert IDs array is required'),

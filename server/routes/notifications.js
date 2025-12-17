@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult } = require('express-validator');
-const { authenticate } = require('../middleware/auth');
+const { authenticateToken } = require('../middleware/auth');
 const { handleValidationErrors } = require('../middleware/validation');
 const logger = require('../middleware/logger');
 
 // Get user notifications
-router.get('/', authenticate, async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const { status, type, page = 1, limit = 20 } = req.query;
     const userId = req.user.id;
@@ -91,7 +91,7 @@ router.get('/', authenticate, async (req, res) => {
 });
 
 // Mark notification as read
-router.patch('/:id/read', authenticate, async (req, res) => {
+router.patch('/:id/read', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -111,7 +111,7 @@ router.patch('/:id/read', authenticate, async (req, res) => {
 });
 
 // Mark all notifications as read
-router.patch('/read-all', authenticate, async (req, res) => {
+router.patch('/read-all', authenticateToken, async (req, res) => {
   try {
     const userId = req.user.id;
     
@@ -131,7 +131,7 @@ router.patch('/read-all', authenticate, async (req, res) => {
 });
 
 // Delete notification
-router.delete('/:id', authenticate, async (req, res) => {
+router.delete('/:id', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     

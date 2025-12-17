@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult, query } = require('express-validator');
-const { authenticate, authorize } = require('../middleware/auth');
+const { authenticateToken, restrictTo } = require('../middleware/auth');
 const { handleValidationErrors } = require('../middleware/validation');
 const logger = require('../middleware/logger');
 
 // Get accreditation status for institutions
-router.get('/status', authenticate, async (req, res) => {
+router.get('/status', authenticateToken, async (req, res) => {
   try {
     const { institutionId, level, status } = req.query;
     
@@ -93,7 +93,7 @@ router.get('/status', authenticate, async (req, res) => {
 });
 
 // Get accreditation applications
-router.get('/applications', authenticate, async (req, res) => {
+router.get('/applications', authenticateToken, async (req, res) => {
   try {
     const { status, institutionId, page = 1, limit = 10 } = req.query;
     
@@ -150,8 +150,8 @@ router.get('/applications', authenticate, async (req, res) => {
 
 // Update accreditation status
 router.put('/status/:id',
-  authenticate,
-  authorize(['accreditation_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['accreditation_officer', 'admin']),
   [
     body('level').optional().isIn(['A++', 'A+', 'A', 'B++', 'B+', 'B']).withMessage('Invalid accreditation level'),
     body('status').isIn(['accredited', 'pending', 'expired', 'suspended', 'revoked']).withMessage('Invalid status'),
@@ -197,8 +197,8 @@ router.put('/status/:id',
 
 // Initiate new accreditation
 router.post('/initiate',
-  authenticate,
-  authorize(['accreditation_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['accreditation_officer', 'admin']),
   [
     body('institutionId').notEmpty().withMessage('Institution ID is required'),
     body('applicationType').isIn(['initial', 'renewal', 'upgrade']).withMessage('Invalid application type'),
@@ -246,8 +246,8 @@ router.post('/initiate',
 
 // Get accreditation analytics
 router.get('/analytics',
-  authenticate,
-  authorize(['accreditation_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['accreditation_officer', 'admin']),
   async (req, res) => {
     try {
       const { period = 'year' } = req.query;
@@ -296,8 +296,8 @@ router.get('/analytics',
 
 // Generate accreditation certificate
 router.post('/certificates/generate',
-  authenticate,
-  authorize(['accreditation_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['accreditation_officer', 'admin']),
   [
     body('accreditationId').notEmpty().withMessage('Accreditation ID is required'),
     body('certificateType').isIn(['accreditation', 'renewal', 'upgrade']).withMessage('Invalid certificate type')
@@ -339,8 +339,8 @@ router.post('/certificates/generate',
 
 // Review accreditation application
 router.post('/applications/:id/review',
-  authenticate,
-  authorize(['accreditation_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['accreditation_officer', 'admin']),
   [
     body('status').isIn(['approved', 'rejected', 'requires_changes', 'under_review']).withMessage('Invalid review status'),
     body('comments').notEmpty().withMessage('Comments are required for review'),

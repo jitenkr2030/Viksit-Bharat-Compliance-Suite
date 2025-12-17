@@ -4,7 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs').promises;
 const { body, validationResult, query } = require('express-validator');
-const { authenticate, authorize } = require('../middleware/auth');
+const { authenticateToken, restrictTo } = require('../middleware/auth');
 const { handleValidationErrors } = require('../middleware/validation');
 const logger = require('../middleware/logger');
 
@@ -50,7 +50,7 @@ const upload = multer({
 });
 
 // Get all documents
-router.get('/', authenticate, async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const { institutionId, type, category, status, search, page = 1, limit = 20 } = req.query;
     
@@ -207,7 +207,7 @@ router.get('/', authenticate, async (req, res) => {
 
 // Upload new document
 router.post('/upload',
-  authenticate,
+  authenticateToken,
   upload.single('document'),
   [
     body('title').notEmpty().withMessage('Title is required'),
@@ -297,7 +297,7 @@ router.post('/upload',
 );
 
 // Get document by ID
-router.get('/:id', authenticate, async (req, res) => {
+router.get('/:id', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -367,7 +367,7 @@ router.get('/:id', authenticate, async (req, res) => {
 });
 
 // Download document
-router.get('/:id/download', authenticate, async (req, res) => {
+router.get('/:id/download', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -399,7 +399,7 @@ router.get('/:id/download', authenticate, async (req, res) => {
 
 // Update document
 router.put('/:id',
-  authenticate,
+  authenticateToken,
   [
     body('title').optional().notEmpty().withMessage('Title cannot be empty'),
     body('description').optional().isString().withMessage('Description must be a string'),
@@ -442,8 +442,8 @@ router.put('/:id',
 
 // Verify/Reject document (for compliance officers)
 router.patch('/:id/verify',
-  authenticate,
-  authorize(['compliance_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['compliance_officer', 'admin']),
   [
     body('status').isIn(['verified', 'rejected']).withMessage('Status must be verified or rejected'),
     body('comments').optional().isString().withMessage('Comments must be a string')
@@ -491,8 +491,8 @@ router.patch('/:id/verify',
 
 // Delete document
 router.delete('/:id',
-  authenticate,
-  authorize(['admin', 'institution_admin', 'document_owner']),
+  authenticateToken,
+  restrictTo(['admin', 'institution_admin', 'document_owner']),
   async (req, res) => {
     try {
       const { id } = req.params;
@@ -520,8 +520,8 @@ router.delete('/:id',
 
 // Get document statistics
 router.get('/stats/overview',
-  authenticate,
-  authorize(['admin', 'institution_admin', 'compliance_officer']),
+  authenticateToken,
+  restrictTo(['admin', 'institution_admin', 'compliance_officer']),
   async (req, res) => {
     try {
       const { institutionId, period = 'month' } = req.query;

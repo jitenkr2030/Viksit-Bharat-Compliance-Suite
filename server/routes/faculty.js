@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult, query } = require('express-validator');
-const { authenticate, authorize } = require('../middleware/auth');
+const { authenticateToken, restrictTo } = require('../middleware/auth');
 const { handleValidationErrors } = require('../middleware/validation');
 const logger = require('../middleware/logger');
 
 // Get all faculty members
-router.get('/', authenticate, async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const { institutionId, department, search, complianceStatus, page = 1, limit = 20 } = req.query;
     
@@ -153,7 +153,7 @@ router.get('/', authenticate, async (req, res) => {
 });
 
 // Get faculty member by ID
-router.get('/:id', authenticate, async (req, res) => {
+router.get('/:id', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -224,8 +224,8 @@ router.get('/:id', authenticate, async (req, res) => {
 
 // Create new faculty member
 router.post('/',
-  authenticate,
-  authorize(['admin', 'institution_admin', 'hr_manager']),
+  authenticateToken,
+  restrictTo(['admin', 'institution_admin', 'hr_manager']),
   [
     body('name').notEmpty().withMessage('Name is required'),
     body('email').isEmail().withMessage('Valid email is required'),
@@ -290,8 +290,8 @@ router.post('/',
 
 // Update faculty member
 router.put('/:id',
-  authenticate,
-  authorize(['admin', 'institution_admin', 'hr_manager']),
+  authenticateToken,
+  restrictTo(['admin', 'institution_admin', 'hr_manager']),
   [
     body('name').optional().notEmpty().withMessage('Name cannot be empty'),
     body('email').optional().isEmail().withMessage('Valid email is required'),
@@ -334,8 +334,8 @@ router.put('/:id',
 
 // Update faculty compliance status
 router.patch('/:id/compliance',
-  authenticate,
-  authorize(['admin', 'compliance_officer', 'standards_officer']),
+  authenticateToken,
+  restrictTo(['admin', 'compliance_officer', 'standards_officer']),
   [
     body('complianceScore').isFloat({ min: 0, max: 100 }).withMessage('Compliance score must be between 0 and 100'),
     body('complianceStatus').isIn(['compliant', 'needs_improvement', 'non_compliant', 'pending']).withMessage('Invalid compliance status'),
@@ -384,7 +384,7 @@ router.patch('/:id/compliance',
 
 // Get faculty compliance report
 router.get('/:id/compliance-report',
-  authenticate,
+  authenticateToken,
   async (req, res) => {
     try {
       const { id } = req.params;
@@ -435,8 +435,8 @@ router.get('/:id/compliance-report',
 
 // Delete faculty member
 router.delete('/:id',
-  authenticate,
-  authorize(['admin', 'institution_admin']),
+  authenticateToken,
+  restrictTo(['admin', 'institution_admin']),
   async (req, res) => {
     try {
       const { id } = req.params;
@@ -461,8 +461,8 @@ router.delete('/:id',
 
 // Get faculty statistics
 router.get('/stats/overview',
-  authenticate,
-  authorize(['admin', 'institution_admin', 'compliance_officer']),
+  authenticateToken,
+  restrictTo(['admin', 'institution_admin', 'compliance_officer']),
   async (req, res) => {
     try {
       const { institutionId } = req.query;

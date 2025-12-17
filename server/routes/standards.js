@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult, query } = require('express-validator');
-const { authenticate, authorize } = require('../middleware/auth');
+const { authenticateToken, restrictTo } = require('../middleware/auth');
 const { handleValidationErrors } = require('../middleware/validation');
 const logger = require('../middleware/logger');
 
 // Get compliance scores for institutions
-router.get('/compliance-scores', authenticate, async (req, res) => {
+router.get('/compliance-scores', authenticateToken, async (req, res) => {
   try {
     const { institutionId, category, search } = req.query;
     
@@ -55,7 +55,7 @@ router.get('/compliance-scores', authenticate, async (req, res) => {
 });
 
 // Get faculty standards assessment
-router.get('/faculty-assessment', authenticate, async (req, res) => {
+router.get('/faculty-assessment', authenticateToken, async (req, res) => {
   try {
     const { institutionId, department } = req.query;
     
@@ -96,7 +96,7 @@ router.get('/faculty-assessment', authenticate, async (req, res) => {
 });
 
 // Get standards benchmarks
-router.get('/benchmarks', authenticate, async (req, res) => {
+router.get('/benchmarks', authenticateToken, async (req, res) => {
   try {
     const { category, level } = req.query;
     
@@ -143,8 +143,8 @@ router.get('/benchmarks', authenticate, async (req, res) => {
 
 // Update compliance score
 router.put('/compliance-scores/:id', 
-  authenticate,
-  authorize(['standards_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['standards_officer', 'admin']),
   [
     body('overallScore').isFloat({ min: 0, max: 100 }).withMessage('Overall score must be between 0 and 100'),
     body('infrastructureScore').optional().isFloat({ min: 0, max: 100 }).withMessage('Infrastructure score must be between 0 and 100'),
@@ -183,8 +183,8 @@ router.put('/compliance-scores/:id',
 
 // Get standards analytics
 router.get('/analytics', 
-  authenticate,
-  authorize(['standards_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['standards_officer', 'admin']),
   async (req, res) => {
     try {
       const { period = 'month', institutionId } = req.query;
@@ -221,8 +221,8 @@ router.get('/analytics',
 
 // Generate standards report
 router.post('/reports/generate',
-  authenticate,
-  authorize(['standards_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['standards_officer', 'admin']),
   [
     body('institutionId').notEmpty().withMessage('Institution ID is required'),
     body('reportType').isIn(['compliance', 'faculty', 'comprehensive']).withMessage('Invalid report type'),
@@ -264,8 +264,8 @@ router.post('/reports/generate',
 
 // Schedule standards audit
 router.post('/audits/schedule',
-  authenticate,
-  authorize(['standards_officer', 'admin']),
+  authenticateToken,
+  restrictTo(['standards_officer', 'admin']),
   [
     body('institutionId').notEmpty().withMessage('Institution ID is required'),
     body('auditDate').isISO8601().withMessage('Valid audit date is required'),

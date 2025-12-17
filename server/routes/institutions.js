@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { body, validationResult, query } = require('express-validator');
-const { authenticate, authorize } = require('../middleware/auth');
+const { authenticateToken, restrictTo } = require('../middleware/auth');
 const { handleValidationErrors } = require('../middleware/validation');
 const logger = require('../middleware/logger');
 
 // Get all institutions
-router.get('/', authenticate, async (req, res) => {
+router.get('/', authenticateToken, async (req, res) => {
   try {
     const { search, type, category, status, page = 1, limit = 20 } = req.query;
     
@@ -198,7 +198,7 @@ router.get('/', authenticate, async (req, res) => {
 });
 
 // Get institution by ID
-router.get('/:id', authenticate, async (req, res) => {
+router.get('/:id', authenticateToken, async (req, res) => {
   try {
     const { id } = req.params;
     
@@ -305,8 +305,8 @@ router.get('/:id', authenticate, async (req, res) => {
 
 // Create new institution
 router.post('/',
-  authenticate,
-  authorize(['admin', 'regulatory_officer']),
+  authenticateToken,
+  restrictTo(['admin', 'regulatory_officer']),
   [
     body('name').notEmpty().withMessage('Institution name is required'),
     body('type').isIn(['school', 'college', 'university']).withMessage('Invalid institution type'),
@@ -367,8 +367,8 @@ router.post('/',
 
 // Update institution
 router.put('/:id',
-  authenticate,
-  authorize(['admin', 'institution_admin']),
+  authenticateToken,
+  restrictTo(['admin', 'institution_admin']),
   [
     body('name').optional().notEmpty().withMessage('Name cannot be empty'),
     body('type').optional().isIn(['school', 'college', 'university']).withMessage('Invalid institution type'),
@@ -418,8 +418,8 @@ router.put('/:id',
 
 // Get institution statistics
 router.get('/stats/overview',
-  authenticate,
-  authorize(['admin', 'regulatory_officer']),
+  authenticateToken,
+  restrictTo(['admin', 'regulatory_officer']),
   async (req, res) => {
     try {
       // Mock statistics
