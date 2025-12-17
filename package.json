@@ -27,5 +27,8 @@
   "license": "MIT",
   "devDependencies": {
     "concurrently": "^8.2.2"
+  },
+  "directories": {
+    "doc": "docs"
   }
 }
