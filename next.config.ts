@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   output: "standalone",
   compress: true,
   poweredByHeader: false,
-  swcMinify: true,
   reactStrictMode: true,
   
   // TypeScript configuration
@@ -167,18 +166,6 @@ const nextConfig: NextConfig = {
   
   // Production optimizations
   productionBrowserSourceMaps: false,
-  
-  // Experimental features
-  experimental: {
-    serverComponentsExternalPackages: ['@prisma/client'],
-    ppr: true, // Partial Prerendering (experimental)
-  },
-  
-  // On-demand entries for development
-  onDemandEntries: {
-    maxInactiveAge: 25 * 1000,
-    pagesBufferLength: 2,
-  },
 };
 
 export default nextConfig;
