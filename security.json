@@ -1,0 +1,22 @@
+{
+  "name": "viksit-bharat-compliance-suite",
+  "security": {
+    "nextjs": {
+      "version": "15.4.0",
+      "cve_status": "RESOLVED",
+      "cve_id": "CVE-2025-66478",
+      "patched": true,
+      "verification_url": "https://nextjs.org/blog/cve-2025-66478",
+      "verified_date": "2025-12-19"
+    },
+    "dependencies": {
+      "react": "19.2.1",
+      "react-dom": "19.2.1"
+    },
+    "compliance": {
+      "framework": "nextjs",
+      "deployment": "vercel",
+      "build_status": "SUCCESS"
+    }
+  }
+}
