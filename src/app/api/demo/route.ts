@@ -92,7 +92,7 @@ export async function POST(request: NextRequest) {
     // 6. Database Storage - Store in landing page backend
     await storeDemoRequest(demoRequestData);
     
-    // 7. API call to Viksit-Bharat-Compliance-Suite backend
+    // 7. API call to PARSS backend
     const backendIntegration = await integrateWithComplianceSuite(demoRequestData);
     
     // Enhanced success response

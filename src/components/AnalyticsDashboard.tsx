@@ -118,7 +118,7 @@ export default function AnalyticsDashboard() {
           <div>
             <h1 className="text-3xl font-bold text-slate-900">Analytics Dashboard</h1>
             <p className="text-slate-600 mt-1">
-              Demo requests and conversion tracking for Viksit Bharat Compliance Suite
+              Penalty protection requests and conversion tracking for PARSS (Penalty Avoidance & Regulatory Survival System)
             </p>
             {lastUpdated && (
               <p className="text-sm text-slate-500 mt-1">

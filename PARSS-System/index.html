@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PARSS - Penalty Avoidance & Regulatory Survival System</title>
+    <meta name="description" content="Seamless compliance management platform for Indian enterprises. From core compliance to autonomous systems - one platform for regulatory adherence.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <img src="assets/logo.svg" alt="PARSS" class="nav-logo">
+                    <span class="nav-title">PARSS</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#app-preview" class="nav-link">App Preview</a>
+                    <a href="#phases" class="nav-link">Platform Phases</a>
+                    <a href="#integration" class="nav-link">Integration</a>
+                    <a href="#demo" class="nav-link">Demo</a>
+                </div>
+                <div class="nav-actions">
+                    <a href="/login" class="btn btn-outline">Login</a>
+                    <a href="#demo" class="btn btn-primary">Get Started</a>
+                </div>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-eyebrow">
+                        <span class="badge badge-success">GOVERNMENT OF INDIA INITIATIVE</span>
+                    </div>
+                    <h1 class="hero-title">
+                        Seamless Compliance for a 
+                        <span class="text-gradient">PARSS</span>
+                    </h1>
+                    <p class="hero-description">
+                        From Core Compliance to Autonomous Systems. One platform to manage regulatory adherence 
+                        for the next generation of Indian enterprise. Digitally enabled, government-integrated, 
+                        and future-ready.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#demo" class="btn btn-primary btn-large">
+                            Start Free Trial
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                        <a href="#features" class="btn btn-outline btn-large">
+                            View Features
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 5v14M5 12h14"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">10,000+</span>
+                            <span class="stat-label">Institutions</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">99.9%</span>
+                            <span class="stat-label">Compliance Rate</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">AI Monitoring</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-card">
+                        <div class="card-header">
+                            <div class="card-dots">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                            <span class="card-title">Compliance Dashboard</span>
+                        </div>
+                        <div class="card-content">
+                            <div class="compliance-item">
+                                <div class="compliance-icon success">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </div>
+                                <div class="compliance-info">
+                                    <span class="compliance-title">GST Compliance</span>
+                                    <span class="compliance-status">Verified</span>
+                                </div>
+                            </div>
+                            <div class="compliance-item">
+                                <div class="compliance-icon success">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </div>
+                                <div class="compliance-info">
+                                    <span class="compliance-title">MCA Filing</span>
+                                    <span class="compliance-status">Completed</span>
+                                </div>
+                            </div>
+                            <div class="compliance-item">
+                                <div class="compliance-icon pending">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <path d="M12 6v6l4 2"/>
+                                    </svg>
+                                </div>
+                                <div class="compliance-info">
+                                    <span class="compliance-title">RBI Reporting</span>
+                                    <span class="compliance-status">Pending</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Logo Strip -->
+    <section class="integration-strip">
+        <div class="container">
+            <p class="integration-title">Trusted by leading government portals and regulatory bodies</p>
+            <div class="integration-logos">
+                <div class="integration-logo">
+                    <svg viewBox="0 0 120 40" class="logo-gst">
+                        <rect width="120" height="40" rx="4" fill="#f8f9fa"/>
+                        <text x="60" y="25" text-anchor="middle" class="logo-text">GST Portal</text>
+                    </svg>
+                </div>
+                <div class="integration-logo">
+                    <svg viewBox="0 0 120 40" class="logo-mca">
+                        <rect width="120" height="40" rx="4" fill="#f8f9fa"/>
+                        <text x="60" y="25" text-anchor="middle" class="logo-text">MCA Portal</text>
+                    </svg>
+                </div>
+                <div class="integration-logo">
+                    <svg viewBox="0 0 120 40" class="logo-rbi">
+                        <rect width="120" height="40" rx="4" fill="#f8f9fa"/>
+                        <text x="60" y="25" text-anchor="middle" class="logo-text">RBI Portal</text>
+                    </svg>
+                </div>
+                <div class="integration-logo">
+                    <svg viewBox="0 0 120 40" class="logo-naac">
+                        <rect width="120" height="40" rx="4" fill="#f8f9fa"/>
+                        <text x="60" y="25" text-anchor="middle" class="logo-text">NAAC Portal</text>
+                    </svg>
+                </div>
+                <div class="integration-logo">
+                    <svg viewBox="0 0 120 40" class="logo-aicte">
+                        <rect width="120" height="40" rx="4" fill="#f8f9fa"/>
+                        <text x="60" y="25" text-anchor="middle" class="logo-text">AICTE Portal</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Platform Features</span>
+                <h2 class="section-title">Complete Compliance Management</h2>
+                <p class="section-description">
+                    From document management to AI-powered insights, our platform covers every aspect 
+                    of regulatory compliance for modern Indian enterprises.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Document Management</h3>
+                    <p class="feature-description">
+                        Centralized document storage with version control, automated workflows, 
+                        and blockchain verification for tamper-proof records.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Automated document verification</li>
+                        <li>Blockchain-backed records</li>
+                        <li>Smart compliance checks</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Real-time Monitoring</h3>
+                    <p class="feature-description">
+                        IoT-enabled monitoring with automated alerts and predictive analytics 
+                        for proactive compliance management.
+                    </p>
+                    <ul class="feature-list">
+                        <li>IoT sensor integration</li>
+                        <li>Predictive alerts</li>
+                        <li>Performance analytics</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M9 12l2 2 4-4"/>
+                            <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                            <path d="M3 12c1 0 3-1 3-3s-2-3-3-3-3 1-3 3 2 3 3 3"/>
+                            <path d="M13 12h3"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">AI Assistant</h3>
+                    <p class="feature-description">
+                        Intelligent chatbot with compliance knowledge base, providing instant 
+                        answers and guidance for regulatory queries.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Natural language queries</li>
+                        <li>Compliance guidance</li>
+                        <li>Automated recommendations</li>
+                    </ul>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M3 3v18h18"/>
+                            <path d="M19 9l-5 5-4-4-3 3"/>
+                        </svg>
+                    </div>
+                    <h3 class="feature-title">Analytics & Reporting</h3>
+                    <p class="feature-description">
+                        Comprehensive dashboards with real-time metrics, trend analysis, 
+                        and automated compliance reporting.
+                    </p>
+                    <ul class="feature-list">
+                        <li>Real-time dashboards</li>
+                        <li>Trend analysis</li>
+                        <li>Automated reports</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Phases Section -->
+    <section id="phases" class="phases">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Platform Evolution</span>
+                <h2 class="section-title">Four Phases of Digital Transformation</h2>
+                <p class="section-description">
+                    Our platform evolves with your compliance needs, from basic document management 
+                    to fully autonomous compliance systems.
+                </p>
+            </div>
+            <div class="phases-grid">
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-badge">PHASE 1</span>
+                        <div class="phase-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14,2 14,8 20,8"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="phase-title">Core Compliance</h3>
+                    <p class="phase-description">
+                        Essential compliance management with document storage, regulatory tracking, 
+                        and basic reporting capabilities.
+                    </p>
+                    <ul class="phase-features">
+                        <li>Document management system</li>
+                        <li>Regulatory compliance tracking</li>
+                        <li>Basic reporting and analytics</li>
+                        <li>User management and permissions</li>
+                    </ul>
+                    <div class="phase-status">
+                        <span class="status-indicator live"></span>
+                        <span class="status-text">Live</span>
+                    </div>
+                </div>
+                
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-badge">PHASE 2</span>
+                        <div class="phase-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="phase-title">Government Integration</h3>
+                    <p class="phase-description">
+                        Direct integration with government portals including GST, MCA, RBI, 
+                        NAAC, and AICTE for seamless data exchange.
+                    </p>
+                    <ul class="phase-features">
+                        <li>Multi-portal API integration</li>
+                        <li>Automated data synchronization</li>
+                        <li>Government compliance workflows</li>
+                        <li>Digital signature integration</li>
+                    </ul>
+                    <div class="phase-status">
+                        <span class="status-indicator live"></span>
+                        <span class="status-text">Live</span>
+                    </div>
+                </div>
+                
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-badge">PHASE 3</span>
+                        <div class="phase-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <path d="M12 19v4"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="phase-title">Advanced Technologies</h3>
+                    <p class="phase-description">
+                        Blockchain verification, IoT monitoring, and AI-powered compliance 
+                        assistance for intelligent compliance management.
+                    </p>
+                    <ul class="phase-features">
+                        <li>Blockchain record verification</li>
+                        <li>IoT device monitoring</li>
+                        <li>AI compliance assistant</li>
+                        <li>Predictive compliance analytics</li>
+                    </ul>
+                    <div class="phase-status">
+                        <span class="status-indicator beta"></span>
+                        <span class="status-text">Beta</span>
+                    </div>
+                </div>
+                
+                <div class="phase-card">
+                    <div class="phase-header">
+                        <span class="phase-badge">PHASE 4</span>
+                        <div class="phase-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <h3 class="phase-title">Autonomous Systems</h3>
+                    <p class="phase-description">
+                        Fully autonomous compliance with self-healing systems, intelligent 
+                        decision-making, and zero-touch compliance operations.
+                    </p>
+                    <ul class="phase-features">
+                        <li>Autonomous decision-making</li>
+                        <li>Self-healing compliance systems</li>
+                        <li>Zero-touch operations</li>
+                        <li>Intelligent risk management</li>
+                    </ul>
+                    <div class="phase-status">
+                        <span class="status-indicator coming"></span>
+                        <span class="status-text">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- App Preview Section -->
+    <section id="app-preview" class="app-preview">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Platform Preview</span>
+                <h2 class="section-title">See PARSS in Action</h2>
+                <p class="section-description">
+                    Experience our intuitive interface designed for seamless compliance management 
+                    across web and mobile platforms.
+                </p>
+            </div>
+            <div class="preview-tabs">
+                <button class="tab-btn active" data-tab="dashboard">Dashboard</button>
+                <button class="tab-btn" data-tab="documents">Documents</button>
+                <button class="tab-btn" data-tab="monitoring">Monitoring</button>
+                <button class="tab-btn" data-tab="analytics">Analytics</button>
+            </div>
+            <div class="preview-content">
+                <div class="preview-devices">
+                    <!-- Web Interface -->
+                    <div class="device-mockup web-mockup">
+                        <div class="device-frame">
+                            <div class="device-header">
+                                <div class="device-dots">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div class="device-controls">
+                                    <button class="control-btn">−</button>
+                                    <button class="control-btn">□</button>
+                                    <button class="control-btn">×</button>
+                                </div>
+                            </div>
+                            <div class="device-screen">
+                                <!-- Dashboard Preview -->
+                                <div class="app-screen dashboard-preview active" id="dashboard">
+                                    <div class="app-header">
+                                        <div class="app-nav">
+                                            <div class="nav-brand">
+                                                <span class="brand-icon">VB</span>
+                                                <span class="brand-text">PARSS</span>
+                                            </div>
+                                            <div class="nav-actions">
+                                                <button class="nav-btn">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                        <path d="M15 17h5l-5 5v-5zM4 19h16M4 7h16M4 3h16"/>
+                                                    </svg>
+                                                </button>
+                                                <button class="nav-btn">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                                        <circle cx="12" cy="7" r="4"/>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="app-content">
+                                        <div class="dashboard-grid">
+                                            <div class="dashboard-card">
+                                                <div class="card-header">
+                                                    <h3>Compliance Overview</h3>
+                                                    <span class="card-badge success">98.5%</span>
+                                                </div>
+                                                <div class="card-metrics">
+                                                    <div class="metric">
+                                                        <span class="metric-value">47</span>
+                                                        <span class="metric-label">Active Filings</span>
+                                                    </div>
+                                                    <div class="metric">
+                                                        <span class="metric-value">12</span>
+                                                        <span class="metric-label">Pending Reviews</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dashboard-card">
+                                                <div class="card-header">
+                                                    <h3>Recent Activities</h3>
+                                                </div>
+                                                <div class="activity-list">
+                                                    <div class="activity-item">
+                                                        <div class="activity-icon success">
+                                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                                <path d="M20 6L9 17l-5-5"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="activity-info">
+                                                            <span class="activity-title">GST Return Filed</span>
+                                                            <span class="activity-time">2 hours ago</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="activity-item">
+                                                        <div class="activity-icon pending">
+                                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                                <circle cx="12" cy="12" r="10"/>
+                                                                <path d="M12 6v6l4 2"/>
+                                                            </svg>
+                                                        </div>
+                                                        <div class="activity-info">
+                                                            <span class="activity-title">MCA Filing Pending</span>
+                                                            <span class="activity-time">4 hours ago</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Documents Preview -->
+                                <div class="app-screen documents-preview" id="documents">
+                                    <div class="app-header">
+                                        <div class="app-nav">
+                                            <div class="nav-brand">
+                                                <span class="brand-icon">VB</span>
+                                                <span class="brand-text">Documents</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="app-content">
+                                        <div class="document-list">
+                                            <div class="document-item">
+                                                <div class="doc-icon">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                        <polyline points="14,2 14,8 20,8"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="doc-info">
+                                                    <span class="doc-name">Annual Report 2024.pdf</span>
+                                                    <span class="doc-meta">2.4 MB • Updated 2 days ago</span>
+                                                </div>
+                                                <div class="doc-status verified">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                        <path d="M20 6L9 17l-5-5"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            <div class="document-item">
+                                                <div class="doc-icon">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                        <polyline points="14,2 14,8 20,8"/>
+                                                    </svg>
+                                                </div>
+                                                <div class="doc-info">
+                                                    <span class="doc-name">Tax Compliance Certificate.pdf</span>
+                                                    <span class="doc-meta">1.8 MB • Updated 1 week ago</span>
+                                                </div>
+                                                <div class="doc-status pending">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                        <circle cx="12" cy="12" r="10"/>
+                                                        <path d="M12 6v6l4 2"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Monitoring Preview -->
+                                <div class="app-screen monitoring-preview" id="monitoring">
+                                    <div class="app-header">
+                                        <div class="app-nav">
+                                            <div class="nav-brand">
+                                                <span class="brand-icon">VB</span>
+                                                <span class="brand-text">Monitoring</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="app-content">
+                                        <div class="monitoring-grid">
+                                            <div class="sensor-card">
+                                                <div class="sensor-header">
+                                                    <h4>Temperature Sensor</h4>
+                                                    <span class="sensor-status online">Online</span>
+                                                </div>
+                                                <div class="sensor-reading">
+                                                    <span class="reading-value">23.5°C</span>
+                                                    <span class="reading-status normal">Normal</span>
+                                                </div>
+                                            </div>
+                                            <div class="sensor-card">
+                                                <div class="sensor-header">
+                                                    <h4>Humidity Monitor</h4>
+                                                    <span class="sensor-status online">Online</span>
+                                                </div>
+                                                <div class="sensor-reading">
+                                                    <span class="reading-value">65%</span>
+                                                    <span class="reading-status normal">Normal</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Analytics Preview -->
+                                <div class="app-screen analytics-preview" id="analytics">
+                                    <div class="app-header">
+                                        <div class="app-nav">
+                                            <div class="nav-brand">
+                                                <span class="brand-icon">VB</span>
+                                                <span class="brand-text">Analytics</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="app-content">
+                                        <div class="chart-placeholder">
+                                            <div class="chart-bars">
+                                                <div class="bar" style="height: 80%"></div>
+                                                <div class="bar" style="height: 60%"></div>
+                                                <div class="bar" style="height: 90%"></div>
+                                                <div class="bar" style="height: 70%"></div>
+                                                <div class="bar" style="height: 85%"></div>
+                                            </div>
+                                            <span class="chart-label">Compliance Trends</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Interface -->
+                    <div class="device-mockup mobile-mockup">
+                        <div class="mobile-frame">
+                            <div class="mobile-notch"></div>
+                            <div class="mobile-screen">
+                                <div class="mobile-app">
+                                    <div class="mobile-header">
+                                        <span class="mobile-time">9:41</span>
+                                        <div class="mobile-status">
+                                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M12 18h.01M8 21h8a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2z"/>
+                                                <path d="M9 21h6"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="mobile-content">
+                                        <div class="mobile-nav">
+                                            <div class="mobile-brand">
+                                                <span class="mobile-brand-icon">VB</span>
+                                            </div>
+                                            <button class="mobile-menu-btn">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                    <path d="M4 6h16M4 12h16M4 18h16"/>
+                                                </svg>
+                                            </button>
+                                        </div>
+                                        <div class="mobile-dashboard">
+                                            <div class="mobile-card">
+                                                <h3>Today's Summary</h3>
+                                                <div class="mobile-metrics">
+                                                    <div class="mobile-metric">
+                                                        <span class="metric-number">3</span>
+                                                        <span class="metric-text">Tasks Due</span>
+                                                    </div>
+                                                    <div class="mobile-metric">
+                                                        <span class="metric-number">98%</span>
+                                                        <span class="metric-text">Compliance</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="mobile-actions">
+                                                <button class="action-btn primary">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                        <polyline points="14,2 14,8 20,8"/>
+                                                    </svg>
+                                                    <span>Upload Document</span>
+                                                </button>
+                                                <button class="action-btn secondary">
+                                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                                    </svg>
+                                                    <span>View Alerts</span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="mobile-bottom-nav">
+                                        <button class="nav-item active">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                            </svg>
+                                            <span>Home</span>
+                                        </button>
+                                        <button class="nav-item">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                                <polyline points="14,2 14,8 20,8"/>
+                                            </svg>
+                                            <span>Docs</span>
+                                        </button>
+                                        <button class="nav-item">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                                <circle cx="12" cy="10" r="3"/>
+                                            </svg>
+                                            <span>Monitor</span>
+                                        </button>
+                                        <button class="nav-item">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                                <path d="M9 12l2 2 4-4"/>
+                                                <path d="M21 12c-1 0-3-1-3-3s2-3 3-3 3 1 3 3-2 3-3 3"/>
+                                            </svg>
+                                            <span>AI</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Section -->
+    <section id="integration" class="integration">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-eyebrow">Seamless Integration</span>
+                <h2 class="section-title">Connect with Your Existing Systems</h2>
+                <p class="section-description">
+                    Our platform integrates seamlessly with your existing tools and workflows, 
+                    ensuring minimal disruption while maximizing compliance efficiency.
+                </p>
+            </div>
+            <div class="integration-content">
+                <div class="integration-visual">
+                    <div class="integration-diagram">
+                        <div class="integration-node">
+                            <div class="node-icon">ERP</div>
+                            <span class="node-label">ERP Systems</span>
+                        </div>
+                        <div class="integration-node">
+                            <div class="node-icon">CRM</div>
+                            <span class="node-label">CRM Tools</span>
+                        </div>
+                        <div class="integration-node">
+                            <div class="node-icon">HRM</div>
+                            <span class="node-label">HR Systems</span>
+                        </div>
+                        <div class="integration-node">
+                            <div class="node-icon">ACC</div>
+                            <span class="node-label">Accounting</span>
+                        </div>
+                        <div class="integration-center">
+                            <div class="center-logo">PS</div>
+                            <span class="center-label">PARSS</span>
+                        </div>
+                        <div class="integration-node">
+                            <div class="node-icon">GOV</div>
+                            <span class="node-label">Gov Portals</span>
+                        </div>
+                        <div class="integration-node">
+                            <div class="node-icon">IOT</div>
+                            <span class="node-label">IoT Devices</span>
+                        </div>
+                        <div class="integration-node">
+                            <div class="node-icon">API</div>
+                            <span class="node-label">Custom APIs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="integration-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Lightning Fast Integration</h4>
+                            <p>RESTful APIs and webhooks for quick setup with your existing systems.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Enterprise Security</h4>
+                            <p>Bank-grade encryption and compliance with government security standards.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M18 6L6 18M6 6l12 12"/>
+                            </svg>
+                        </div>
+                        <div class="benefit-content">
+                            <h4>Zero Downtime</h4>
+                            <p>Seamless migration and integration without service interruptions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Ready for the Future of Compliance?</h2>
+                <p class="cta-description">
+                    Join thousands of institutions already protecting themselves from 
+                    penalties with PARSS. Start your free trial today.
+                </p>
+                <div class="cta-actions">
+                    <a href="#demo" class="btn btn-primary btn-large">
+                        Start Free Trial
+                    </a>
+                    <a href="tel:+911234567890" class="btn btn-outline btn-large">
+                        Schedule Demo
+                    </a>
+                </div>
+                <div class="cta-features">
+                    <span class="cta-feature">✓ 30-day free trial</span>
+                    <span class="cta-feature">✓ No credit card required</span>
+                    <span class="cta-feature">✓ Setup in minutes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/logo.svg" alt="PARSS">
+                        <span>PARSS</span>
+                    </div>
+                    <p class="footer-description">
+                        Empowering Indian enterprises with intelligent compliance management 
+                        for a digitally transformed future.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Platform</h4>
+                        <a href="#features">Features</a>
+                        <a href="#phases">Phases</a>
+                        <a href="#integration">Integrations</a>
+                        <a href="/api-docs">API Documentation</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Solutions</h4>
+                        <a href="/education">Education</a>
+                        <a href="/healthcare">Healthcare</a>
+                        <a href="/finance">Finance</a>
+                        <a href="/manufacturing">Manufacturing</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="/help">Help Center</a>
+                        <a href="/contact">Contact Us</a>
+                        <a href="/training">Training</a>
+                        <a href="/status">System Status</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="/about">About Us</a>
+                        <a href="/careers">Careers</a>
+                        <a href="/privacy">Privacy Policy</a>
+                        <a href="/terms">Terms of Service</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 PARSS - Penalty Avoidance & Regulatory Survival System. All rights reserved.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a>
+                    <a href="#" class="social-link">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.758-1.378l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146 1.123.345 2.306.535 3.55.535 6.624 0 11.99-5.367 11.99-11.987C24.007 5.367 18.641.001.012.001z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Demo Modal -->
+    <div id="demoModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Request a Demo</h3>
+                <button class="modal-close" id="modalClose">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="demoForm" class="demo-form">
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Work Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="industry">Industry</label>
+                        <select id="industry" name="industry" required>
+                            <option value="">Select Industry</option>
+                            <option value="education">Education</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="finance">Finance</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="technology">Technology</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="employees">Number of Employees</label>
+                        <select id="employees" name="employees" required>
+                            <option value="">Select Range</option>
+                            <option value="1-50">1-50</option>
+                            <option value="51-200">51-200</option>
+                            <option value="201-1000">201-1000</option>
+                            <option value="1000+">1000+</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Tell us about your compliance needs</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Briefly describe your current compliance challenges..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">Request Demo</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/main.js"></script>
+    <script src="scripts/animations.js"></script>
+    <script src="scripts/demo-form.js"></script>
+    <script src="scripts/api-integration.js"></script>
+</body>
+</html>

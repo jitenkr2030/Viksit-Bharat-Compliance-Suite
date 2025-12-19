@@ -1,8 +1,8 @@
-# Viksit Bharat Compliance Suite - API Documentation
+# Penalty Avoidance & Regulatory Survival System (PARSS) - API Documentation
 
 ## 📋 Overview
 
-This document provides comprehensive API documentation for the Viksit Bharat Compliance Suite integration, including the landing page demo requests, CRM integration, email automation, and analytics tracking.
+This document provides comprehensive API documentation for the PARSS integration, including the landing page penalty avoidance demo requests, CRM integration, email automation, and analytics tracking.
 
 ## 🔗 Base URLs
 

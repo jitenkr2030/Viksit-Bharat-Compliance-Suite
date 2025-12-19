@@ -45,16 +45,16 @@ export default function LoginPage() {
         {/* Logo and Brand */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-10 h-10 bg-orange-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">VB</span>
+            <div className="w-10 h-10 bg-red-600 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-lg">PS</span>
             </div>
-            <span className="font-semibold text-2xl text-slate-900">Viksit Bharat</span>
+            <span className="font-semibold text-2xl text-slate-900">PARSS</span>
           </div>
           <h1 className="text-2xl font-bold text-slate-900 mb-2">
             Welcome Back
           </h1>
           <p className="text-slate-600">
-            Sign in to your compliance management dashboard
+            Sign in to your penalty avoidance dashboard
           </p>
         </div>
 
@@ -184,7 +184,7 @@ export default function LoginPage() {
         <div className="mt-6 text-center">
           <div className="inline-flex items-center space-x-2 text-sm text-slate-500">
             <Shield className="h-4 w-4" />
-            <span>Secure login powered by Viksit Bharat</span>
+            <span>Secure login powered by PARSS</span>
           </div>
         </div>
       </div>

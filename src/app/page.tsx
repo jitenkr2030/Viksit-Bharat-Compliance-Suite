@@ -64,47 +64,47 @@ export default function Home() {
 
   const features = [
     {
-      icon: FileText,
-      title: "Core Compliance Management",
-      description: "Essential compliance infrastructure with intelligent document and regulatory systems",
+      icon: Shield,
+      title: "Penalty Avoidance System",
+      description: "Proactive penalty prevention with AI-powered risk prediction and automated alerts",
       features: [
-        "Centralized document storage with versioning",
-        "Automated regulatory compliance monitoring",
-        "Role-based user access control",
-        "Comprehensive compliance reporting"
+        "Real-time compliance risk scoring",
+        "Penalty probability prediction engine",
+        "Auto-alerts before violation thresholds",
+        "₹10L-₹2Cr penalty prevention system"
       ]
     },
     {
-      icon: Shield,
-      title: "Government Integration",
-      description: "Seamless multi-portal connectivity with automated workflows and real-time synchronization",
+      icon: FileText,
+      title: "Regulatory Survival Tools",
+      description: "Essential infrastructure for surviving regulatory audits and avoiding shutdowns",
       features: [
-        "Direct integration with GST, MCA, RBI, NAAC, AICTE",
-        "Streamlined compliance process automation",
-        "Secure digital signature authentication",
-        "Live data synchronization across portals"
+        "Immutable blockchain audit trails",
+        "Automated regulatory compliance monitoring",
+        "Proactive violation detection",
+        "Digital compliance documentation"
       ]
     },
     {
       icon: Bot,
-      title: "Advanced Technologies",
-      description: "Cutting-edge AI, blockchain, and IoT solutions for intelligent compliance management",
+      title: "AI-Powered Protection",
+      description: "Cutting-edge AI and predictive analytics for maximum penalty avoidance",
       features: [
-        "Immutable blockchain compliance documentation",
-        "Smart campus IoT monitoring systems",
-        "AI-powered compliance assistance",
-        "Predictive analytics for proactive management"
+        "Predictive compliance analytics",
+        "AI-powered violation prediction",
+        "Smart campus monitoring systems",
+        "Automated risk mitigation strategies"
       ]
     },
     {
       icon: BarChart3,
-      title: "Autonomous Operations",
-      description: "Self-healing systems with intelligent decision making and continuous optimization",
+      title: "Autonomous Defense",
+      description: "Self-healing systems that protect your institution 24/7 without human intervention",
       features: [
-        "Automated problem resolution systems",
-        "AI-powered compliance decision making",
-        "Zero-touch compliance workflows",
-        "Continuous system performance optimization"
+        "Zero-touch penalty prevention",
+        "Autonomous regulatory compliance",
+        "AI-powered decision making",
+        "Continuous protection optimization"
       ]
     }
   ];
@@ -112,30 +112,30 @@ export default function Home() {
   const phases = [
     {
       phase: "PHASE 1",
-      title: "Core Compliance",
-      description: "Essential compliance infrastructure with document management and regulatory tracking",
-      features: ["Document management system", "Regulatory compliance monitoring", "User access control", "Comprehensive reporting"],
+      title: "Penalty Risk Detection",
+      description: "Essential penalty prevention infrastructure with risk scoring and violation alerts",
+      features: ["Real-time risk scoring", "Penalty probability prediction", "Violation alerts", "Digital audit trails"],
       status: "Live"
     },
     {
       phase: "PHASE 2",
-      title: "Government Integration",
-      description: "Multi-portal API integration with automated workflows and real-time synchronization",
-      features: ["Multi-portal APIs integration", "Automated workflow engine", "Digital signature authentication", "Real-time data sync"],
+      title: "Proactive Protection",
+      description: "Multi-portal integration with automated prevention workflows and real-time monitoring",
+      features: ["Predictive risk analysis", "Automated prevention workflows", "Real-time violation detection", "Penalty avoidance alerts"],
       status: "Live"
     },
     {
       phase: "PHASE 3",
-      title: "Advanced Technologies",
-      description: "Blockchain, IoT, and AI-powered compliance systems with predictive analytics",
-      features: ["Blockchain compliance records", "IoT smart campus monitoring", "AI compliance assistant", "Predictive analytics"],
+      title: "AI-Powered Defense",
+      description: "Advanced AI and blockchain systems for maximum penalty avoidance and survival",
+      features: ["AI penalty prediction", "Blockchain audit protection", "Smart monitoring systems", "Autonomous risk mitigation"],
       status: "Live"
     },
     {
       phase: "PHASE 4",
-      title: "Autonomous Operations",
-      description: "Self-healing systems with intelligent decision making and continuous optimization",
-      features: ["Self-healing problem resolution", "AI-powered decision making", "Zero-touch operations", "Continuous optimization"],
+      title: "Autonomous Survival",
+      description: "Self-protecting systems that prevent penalties 24/7 without human intervention",
+      features: ["Zero-touch penalty prevention", "Autonomous compliance defense", "AI-powered survival", "Continuous protection"],
       status: "Live"
     }
   ];
@@ -155,10 +155,10 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">VB</span>
+              <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-sm">PS</span>
               </div>
-              <span className="font-semibold text-lg text-slate-900">Viksit Bharat</span>
+              <span className="font-semibold text-lg text-slate-900">PARSS</span>
             </div>
             
             <div className="hidden md:flex items-center space-x-6">
@@ -192,21 +192,29 @@ export default function Home() {
                   VIKSIT BHARAT SHIKSHA ADHIKSHAN 2025
                 </Badge>
                 <h1 className="text-4xl lg:text-6xl font-bold text-slate-900 leading-tight">
-                  AI-Powered Compliance for{' '}
+                  Prevent{' '}
+                  <span className="bg-gradient-to-r from-red-600 to-orange-600 bg-clip-text text-transparent">
+                    ₹10L–₹2Cr Penalties
+                  </span>
+                  {' '}with AI-Powered{' '}
                   <span className="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
-                    Educational Excellence
+                    Regulatory Survival
                   </span>
                 </h1>
-                <p className="text-xl text-slate-600 leading-relaxed">
-                  99% autonomous compliance management with AI intelligence, multi-council integration, 
-                  and self-healing systems. Transforming educational institutions through seamless 
-                  regulatory adherence across UGC, AICTE, NCTE and beyond.
-                </p>
+                <div className="text-xl text-slate-600 leading-relaxed space-y-3">
+                  <p className="font-semibold text-green-700">
+                    🧠 Core Value Proposition: "We prevent ₹10L–₹2Cr penalties by ensuring continuous, provable compliance with the Viksit Bharat Shiksha Adhishthan."
+                  </p>
+                  <p>
+                    99% autonomous penalty avoidance system with AI intelligence, predictive risk scoring, 
+                    and proactive alerts. Protecting educational institutions from regulatory fines before they happen.
+                  </p>
+                </div>
               </div>
               
               <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-orange-600 hover:bg-orange-700">
-                  Start Free Trial
+                <Button size="lg" className="bg-red-600 hover:bg-red-700">
+                  Start Penalty Protection
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
                 <Button variant="outline" size="lg">
@@ -271,6 +279,92 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Platform Mapping to Bill Section */}
+      <section className="py-20 px-4 bg-gradient-to-r from-red-50 to-orange-50">
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <Badge className="mb-4 bg-red-100 text-red-800 border-red-200">🏛️ Mapping Your Platform DIRECTLY to the Bill</Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
+              1️⃣ Stronger Penalties → Penalty Avoidance System (Your Killer Feature)
+            </h2>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-red-500">
+                  <h3 className="text-xl font-bold text-red-700 mb-3">Bill Reality</h3>
+                  <ul className="space-y-2 text-slate-700">
+                    <li className="flex items-center space-x-2">
+                      <span className="text-red-500 font-bold">•</span>
+                      <span>₹10L–₹75L fines for violations</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <span className="text-red-500 font-bold">•</span>
+                      <span>₹2Cr for illegal / non-approved operations</span>
+                    </li>
+                    <li className="flex items-center space-x-2">
+                      <span className="text-red-500 font-bold">•</span>
+                      <span>Frequent inspections + digital audits</span>
+                    </li>
+                  </ul>
+                </div>
+                
+                <div className="bg-white p-6 rounded-lg shadow-lg border-l-4 border-green-500">
+                  <h3 className="text-xl font-bold text-green-700 mb-3">Your Platform Response</h3>
+                  <ul className="space-y-3">
+                    <li className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center">
+                        <span className="text-red-600 font-bold text-sm">🔴</span>
+                      </div>
+                      <span className="font-semibold">Real-time Compliance Risk Score</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center">
+                        <span className="text-red-600 font-bold text-sm">🔴</span>
+                      </div>
+                      <span className="font-semibold">Penalty Probability Engine</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center">
+                        <span className="text-red-600 font-bold text-sm">🔴</span>
+                      </div>
+                      <span className="font-semibold">Auto-alerts before violation thresholds</span>
+                    </li>
+                    <li className="flex items-center space-x-3">
+                      <div className="w-6 h-6 bg-red-100 rounded-full flex items-center justify-center">
+                        <span className="text-red-600 font-bold text-sm">🔴</span>
+                      </div>
+                      <span className="font-semibold">Digital audit trail (blockchain-backed)</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div className="space-y-6">
+              <div className="bg-gradient-to-br from-orange-500 to-red-600 text-white p-8 rounded-xl shadow-xl">
+                <div className="text-center space-y-4">
+                  <div className="text-6xl font-bold">₹2Cr</div>
+                  <div className="text-xl font-semibold">Maximum Penalty Prevention</div>
+                  <div className="text-lg opacity-90">Through AI-Powered Predictive Compliance</div>
+                </div>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg shadow-lg">
+                <h4 className="text-lg font-bold text-slate-900 mb-4">👉 You don't "track rules"</h4>
+                <h4 className="text-lg font-bold text-slate-900">👉 You predict fines before they happen</h4>
+                <div className="mt-4 p-4 bg-green-50 rounded-lg border border-green-200">
+                  <p className="text-green-800 font-semibold">
+                    💡 "Prevention is worth millions in penalty savings"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Integration Strip */}
       <section className="py-12 bg-slate-50">
         <div className="container mx-auto px-4">
@@ -291,13 +385,13 @@ export default function Home() {
       <section id="features" className="py-20 px-4">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <Badge className="mb-4">Comprehensive Capabilities</Badge>
+            <Badge className="mb-4">Penalty Prevention System</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-              Complete Compliance Management Suite
+              Complete Penalty Avoidance & Regulatory Survival Suite
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              From core document management to fully autonomous operations, our platform provides 
-              end-to-end compliance solutions with AI intelligence and multi-council integration.
+              From risk prediction to fully autonomous penalty prevention, our platform provides 
+              end-to-end protection against ₹10L-₹2Cr regulatory fines with AI-powered survival systems.
             </p>
           </div>
           
@@ -331,13 +425,13 @@ export default function Home() {
       <section id="phases" className="py-20 px-4 bg-slate-50">
         <div className="container mx-auto">
           <div className="text-center mb-16">
-            <Badge className="mb-4">Implementation Phases</Badge>
+            <Badge className="mb-4">Penalty Prevention Evolution</Badge>
             <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-              Four Phases of Compliance Evolution
+              Four Phases of Regulatory Survival
             </h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Our platform evolves from essential compliance management to fully autonomous operations, 
-              delivering increasing levels of automation and intelligence at each phase.
+              Our platform evolves from basic risk detection to fully autonomous penalty prevention, 
+              delivering increasing levels of protection and intelligence at each phase.
             </p>
           </div>
           
@@ -727,20 +821,20 @@ export default function Home() {
         <div className="container mx-auto">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <Badge className="mb-4">Get Started</Badge>
+              <Badge className="mb-4">Get Protected</Badge>
               <h2 className="text-3xl lg:text-4xl font-bold text-slate-900 mb-4">
-                Request Your Compliance Demo
+                Request Your Penalty Avoidance Demo
               </h2>
               <p className="text-xl text-slate-600">
-                Experience how our 99% autonomous platform transforms compliance management for your institution
+                Experience how our 99% autonomous platform prevents ₹10L-₹2Cr penalties and ensures regulatory survival for your institution
               </p>
             </div>
             
             <Card className="shadow-xl">
               <CardHeader>
-                <CardTitle>Institutional Compliance Assessment</CardTitle>
+                <CardTitle>Institutional Penalty Risk Assessment</CardTitle>
                 <CardDescription>
-                  Tell us about your institution and compliance needs. Our experts will provide a personalized demo tailored to your requirements.
+                  Tell us about your institution and penalty risks. Our experts will provide a personalized demo showcasing how we prevent regulatory fines.
                 </CardDescription>
               </CardHeader>
               <CardContent>
@@ -797,32 +891,32 @@ export default function Home() {
                       </select>
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="compliance-focus">Primary Focus *</Label>
-                      <select id="compliance-focus" className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500" required>
+                      <Label htmlFor="compliance-focus">Penalty Protection Focus *</Label>
+                      <select id="compliance-focus" className="w-full px-3 py-2 border border-slate-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500" required>
                         <option value="">Select focus</option>
-                        <option value="regulatory">Regulatory Compliance</option>
-                        <option value="accreditation">Accreditation Management</option>
-                        <option value="automation">Process Automation</option>
-                        <option value="analytics">Analytics & Reporting</option>
-                        <option value="comprehensive">Comprehensive Solution</option>
+                        <option value="penalty-avoidance">Penalty Avoidance System</option>
+                        <option value="risk-prediction">Risk Prediction & Prevention</option>
+                        <option value="regulatory-survival">Regulatory Survival Tools</option>
+                        <option value="audit-protection">Audit Protection & Defense</option>
+                        <option value="comprehensive">Complete Protection Solution</option>
                       </select>
                     </div>
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="current-challenges">Current Compliance Challenges</Label>
+                    <Label htmlFor="current-challenges">Current Penalty Risks & Challenges</Label>
                     <Textarea 
                       id="current-challenges" 
-                      placeholder="Describe your current compliance challenges, manual processes, or pain points..."
+                      placeholder="Describe your current penalty risks, regulatory challenges, or compliance fears..."
                       rows={3}
                     />
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="expected-outcomes">Expected Outcomes</Label>
+                    <Label htmlFor="expected-outcomes">Expected Penalty Protection Outcomes</Label>
                     <Textarea 
                       id="expected-outcomes" 
-                      placeholder="What are your expected outcomes from implementing our compliance platform?"
+                      placeholder="What penalty protection outcomes do you expect from implementing our PARSS platform?"
                       rows={3}
                     />
                   </div>
@@ -839,10 +933,10 @@ export default function Home() {
                   </div>
                   
                   <div className="space-y-2">
-                    <Label htmlFor="message">Additional Requirements (Optional)</Label>
+                    <Label htmlFor="message">Additional Penalty Protection Requirements (Optional)</Label>
                     <Textarea 
                       id="message" 
-                      placeholder="Any specific requirements, questions, or additional information..."
+                      placeholder="Any specific penalty protection requirements, questions about fine prevention, or additional information..."
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
                       rows={3}
@@ -852,7 +946,7 @@ export default function Home() {
                   <div className="flex items-center space-x-2">
                     <input type="checkbox" id="newsletter" className="rounded border-slate-300 text-orange-600 focus:ring-orange-500" />
                     <Label htmlFor="newsletter" className="text-sm text-slate-600">
-                      I would like to receive updates about compliance regulations and platform features
+                      I would like to receive updates about penalty prevention and regulatory survival strategies
                     </Label>
                   </div>
                   
@@ -862,7 +956,7 @@ export default function Home() {
                     className="w-full bg-orange-600 hover:bg-orange-700"
                     disabled={isSubmitting}
                   >
-                    {isSubmitting ? 'Submitting Request...' : 'Request Personalized Demo'}
+                    {isSubmitting ? 'Submitting Request...' : 'Request Penalty Protection Demo'}
                   </Button>
                 </form>
               </CardContent>
@@ -877,20 +971,20 @@ export default function Home() {
           <div className="grid md:grid-cols-4 gap-8">
             <div className="space-y-4">
               <div className="flex items-center space-x-2">
-                <div className="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">VB</span>
+                <div className="w-8 h-8 bg-red-600 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">PS</span>
                 </div>
-                <span className="font-semibold text-lg">Viksit Bharat</span>
+                <span className="font-semibold text-lg">PARSS</span>
               </div>
               <p className="text-slate-400">
-                Empowering educational institutions with seamless VBSA compliance management.
+                Preventing ₹10L-₹2Cr penalties through AI-powered regulatory survival systems.
               </p>
             </div>
             
             <div className="space-y-4">
               <h3 className="font-semibold">Platform</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="#features" className="hover:text-white transition-colors">VBSA Features</a></li>
+                <li><a href="#features" className="hover:text-white transition-colors">Penalty Avoidance Features</a></li>
                 <li><a href="#phases" className="hover:text-white transition-colors">Implementation Phases</a></li>
                 <li><a href="#councils" className="hover:text-white transition-colors">Specialized Councils</a></li>
                 <li><a href="#integration" className="hover:text-white transition-colors">Regulatory Integration</a></li>
@@ -901,7 +995,7 @@ export default function Home() {
             <div className="space-y-4">
               <h3 className="font-semibold">Support</h3>
               <ul className="space-y-2 text-slate-400">
-                <li><a href="#" className="hover:text-white transition-colors">VBSA Documentation</a></li>
+                <li><a href="#" className="hover:text-white transition-colors">PARSS Documentation</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Compliance Guidelines</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">Implementation Support</a></li>
                 <li><a href="#" className="hover:text-white transition-colors">System Status</a></li>
@@ -919,7 +1013,7 @@ export default function Home() {
           </div>
           
           <div className="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
-            <p>&copy; 2024 Viksit Bharat Shiksha Adhikshan Compliance Suite. All rights reserved.</p>
+            <p>&copy; 2024 Penalty Avoidance & Regulatory Survival System (PARSS). All rights reserved.</p>
           </div>
         </div>
       </footer>
