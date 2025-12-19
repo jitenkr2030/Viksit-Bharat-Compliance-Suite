@@ -14,24 +14,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Z.ai Code Scaffold - AI-Powered Development",
-  description: "Modern Next.js scaffold optimized for AI-powered development with Z.ai. Built with TypeScript, Tailwind CSS, and shadcn/ui.",
-  keywords: ["Z.ai", "Next.js", "TypeScript", "Tailwind CSS", "shadcn/ui", "AI development", "React"],
-  authors: [{ name: "Z.ai Team" }],
+  title: "PARSS - Penalty Avoidance & Regulatory Survival System",
+  description: "Comprehensive compliance management system for educational institutions. Avoid penalties ranging from ₹10L to ₹2Cr through automated regulatory compliance monitoring and reporting.",
+  keywords: ["PARSS", "Penalty Avoidance", "Regulatory Compliance", "Educational Institutions", "Compliance Management", "Regulatory Survival", "Education Compliance", "Higher Education", "AICTE Compliance", "NAAC Compliance"],
+  authors: [{ name: "PARSS Development Team" }],
   icons: {
-    icon: "https://z-cdn.chatglm.cn/z-ai/static/logo.svg",
+    icon: "/favicon.ico",
   },
   openGraph: {
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
-    url: "https://chat.z.ai",
-    siteName: "Z.ai",
+    title: "PARSS - Penalty Avoidance & Regulatory Survival System",
+    description: "Protect your educational institution from regulatory penalties with automated compliance monitoring and reporting.",
+    url: "https://parss-system.vercel.app",
+    siteName: "PARSS",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Z.ai Code Scaffold",
-    description: "AI-powered development with modern React stack",
+    title: "PARSS - Penalty Avoidance & Regulatory Survival System",
+    description: "Comprehensive compliance management for educational institutions. Avoid penalties with automated monitoring.",
   },
 };
 
