@@ -12,14 +12,21 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
   
-  // ESLint configuration
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  // Turbopack configuration for Next.js 16
+  turbopack: {},
   
-  // Image optimization
+  // Image optimization (updated for Next.js 16)
   images: {
-    domains: ['your-domain.com', 'localhost'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'your-domain.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'localhost',
+      },
+    ],
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
@@ -113,37 +120,10 @@ const nextConfig: NextConfig = {
     ];
   },
   
-  // Webpack optimizations
+  // Bundle analyzer for development (compatible with Turbopack)
   webpack: (config, { dev, isServer }) => {
-    // Bundle splitting optimization
-    if (!dev && !isServer) {
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            priority: 10,
-            reuseExistingChunk: true,
-          },
-          common: {
-            name: 'common',
-            minChunks: 2,
-            priority: 5,
-            reuseExistingChunk: true,
-          },
-          ui: {
-            name: 'ui',
-            test: /[\\/]src[\\/]components[\\/]ui[\\/]/,
-            priority: 15,
-            reuseExistingChunk: true,
-          },
-        },
-      };
-    }
-    
     // Bundle analyzer (development only)
-    if (process.env.ANALYZE === 'true') {
+    if (process.env.ANALYZE === 'true' && dev && !isServer) {
       const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
       config.plugins.push(
         new BundleAnalyzerPlugin({
@@ -163,9 +143,6 @@ const nextConfig: NextConfig = {
   
   // Asset optimization
   assetPrefix: process.env.NODE_ENV === 'production' ? process.env.CDN_URL : '',
-  
-  // Production optimizations
-  productionBrowserSourceMaps: false,
 };
 
 export default nextConfig;
